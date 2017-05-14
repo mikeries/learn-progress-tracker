@@ -1,27 +1,18 @@
-# README
+# Learn Progress Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+We're nerds learning to code, and we want more feedback on our progress through the Learn Curriculum.  This web app helps you explore your progress and see how far you've come.  Additionally, you can take notes as you progress and tag lessons and search through them
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Clone the repository, run `bundle install` to install the gems, then `rails s` to start the server.  Then point your browser to http://localhost:3000.
+**NOTE:  This web app is currently in development and uses a static datafile.**
 
-* System dependencies
 
-* Configuration
+## Contributing
 
-* Database creation
+Bug reports and pull requests are welcome on GitHub at https://github.com/'michaelries-61193'/todays_baseball. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Database initialization
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
-# learn-progress-tracker
-rails application that tracks your progress through the Learn curriculum.
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
