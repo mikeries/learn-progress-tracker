@@ -22,11 +22,11 @@ Unit title, lesson title, link to lesson, current notes, tags
 Add notes, tags, create new tags
 
 ## Ideas for Future development
-Instructor access
-Goal setting and tracking
-Some kind of "Help Me!" button?
-Resources -> Links to helpful websites discovered while doing lessons
-Social networking -- share your data with friends? competitions? challenges?
+* Instructor access
+* Goal setting and tracking
+* Some kind of "Help Me!" button?
+* Resources -> Links to helpful websites discovered while doing lessons
+* Social networking -- share your data with friends? competitions? challenges?
   * Think about how fitbit/endomondo motivate people to exercise
-Capability to search read-me as well as titles/tags/notes
+* Capability to search read-me as well as titles/tags/notes
   * maybe utilize the google [custom search engine](https://developers.google.com/custom-search/docs/tutorial/introduction)?
