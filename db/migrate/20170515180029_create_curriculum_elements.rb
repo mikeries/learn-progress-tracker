@@ -10,6 +10,7 @@ class CreateCurriculumElements < ActiveRecord::Migration[5.1]
       t.boolean :visible
       t.boolean :completed_all
       t.boolean :started_any
+      t.integer :student_id
       t.string :type
 
       t.timestamps
