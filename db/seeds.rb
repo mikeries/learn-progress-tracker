@@ -13,6 +13,6 @@ curriculum_hash = JSON.parse(file)
 
 topics = curriculum_hash['topics']
 
-topics.each do |unit_hash|
-  Unit.create(unit_hash)
+topics.each do |topic_hash|
+  Topic.create(topic_hash)
 end
