@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515183220) do
+ActiveRecord::Schema.define(version: 20170515204304) do
 
   create_table "curriculum_elements", force: :cascade do |t|
     t.boolean "complete"
@@ -22,13 +22,19 @@ ActiveRecord::Schema.define(version: 20170515183220) do
     t.boolean "visible"
     t.boolean "completed_all"
     t.boolean "started_any"
-    t.integer "student_id"
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "unit_id"
     t.integer "topic_id"
+  end
+
+  create_table "student_lessons", force: :cascade do |t|
+    t.integer "student_id"
     t.text "notes"
+    t.integer "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|

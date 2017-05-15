@@ -1,6 +1,5 @@
 class Lesson < CurriculumElement
-  belongs_to :student
+  has_many :student_lessons
   belongs_to :unit
-  has_many :lessons
 
 end
