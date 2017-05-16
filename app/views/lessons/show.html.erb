@@ -11,7 +11,8 @@
 <p>
   Type: <%= @lesson.content_type %>
 </p>
-
-<p>
-  Notes: <%= @student_lesson.notes %>
-</p>
+<% if @student_lesson %>
+  <p>
+    Notes: <%= @student_lesson.notes %>
+  </p>
+<% end %>

@@ -7,6 +7,6 @@ class Unit < CurriculumElement
   end
 
   def completed_lessons
-    lessons.inject(0) {|sum, lesson| sum += 1 if lesson.complete}
+    lessons.select {|lesson| lesson.complete}.count
   end
 end

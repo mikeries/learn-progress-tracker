@@ -3,6 +3,7 @@
         <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion_track" <%= href_for(topic) %>>
               <%= topic.title %>
+              <span class="pull-right"><%= "#{topic.completed_lessons} of #{topic.lessons.count}" %></span>
             </a>
         </h4>
     </div>

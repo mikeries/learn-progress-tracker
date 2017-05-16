@@ -3,6 +3,7 @@
           <h4 class="panel-title">
               <a data-toggle="collapse" <%= data_parent_for(unit) %> <%= href_for(unit) %>>
                 <%= unit.title %>
+                <span class="pull-right"><%= "#{unit.completed_lessons} of #{unit.lessons.count}" %></span>
               </a>
           </h4>
       </div>
