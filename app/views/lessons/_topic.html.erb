@@ -6,9 +6,9 @@
             </a>
         </h4>
     </div>
-    <div <%= id_for(topic) %> class="panel-collapse collapse">
+    <div <%= collapse_id_for(topic) %> class="panel-collapse collapse">
         <div class="panel-body">
-            <div class="panel-group" id='accordion_topic_<%"#{topic.id}"%>'>
+            <div class="panel-group" <%= accordion_id_for(topic) %>>
               <% topic.units.each do |unit| %>
                 <%= render partial: 'lessons/unit', locals: {unit: unit} %>
               <% end %>

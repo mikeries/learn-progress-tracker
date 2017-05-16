@@ -7,8 +7,16 @@ module LessonHelper
     'href=#' + collapse_id(element)
   end
 
-  def id_for(element)
+  def collapse_id_for(element)
     'id=' + collapse_id(element)
+  end
+
+  def accordion_id_for(element)
+    "id=accordion_topic_#{element.id}" if element.type=='Topic'
+  end
+
+  def data_parent_for(element)
+    "data-parent=#accordion_topic_#{element.topic.id}" if element.type=='Unit'
   end
 
 end
