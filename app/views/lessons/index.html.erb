@@ -1,6 +1,7 @@
-<h1> Curriculum </h1>
+<h1>Full Stack Web Dev. With React</h1>
 
-<% @topics.each do |topic| %>
-<!-- <%= content_tag(:h3, topic.title) %> -->
-<%= render partial: 'lessons/topic', locals: {topic: topic} %>
-<% end %>
+<div class="panel-group" id="accordion-track">
+  <% @topics.each do |topic| %>
+  <%= render partial: 'lessons/topic', locals: {topic: topic} %>
+  <% end %>
+</div>

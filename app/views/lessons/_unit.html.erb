@@ -1,6 +1,14 @@
-<p>
-  <h5><%= unit.title %></h5>
-  <% unit.lessons.each do |lesson| %>
-  <%= render partial: 'lessons/lesson', locals: {lesson: lesson} %>
-  <% end %>
-</p>
+  <div class="panel panel-default">
+      <div class="panel-heading">
+          <h4 class="panel-title">
+              <a data-toggle="collapse" <%="data_parent=#accordion-topic-#{unit.topic.id}"%> <%="href=#collapse-unit-#{unit.id}"%>>
+                <%= unit.title %>
+              </a>
+          </h4>
+      </div>
+      <div <%="id=collapse-unit-#{unit.id}"%> class="panel-collapse collapse">
+        <% unit.lessons.each do |lesson| %>
+          <%= render partial: 'lessons/lesson', locals: {lesson: lesson} %>
+        <% end %>
+      </div>
+  </div>
