@@ -1,0 +1,6 @@
+<p>
+  <h5><%= unit.title %></h5>
+  <% unit.lessons.each do |lesson| %>
+  <%= render partial: 'lessons/lesson', locals: {lesson: lesson} %>
+  <% end %>
+</p>

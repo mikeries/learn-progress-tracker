@@ -1,1 +1,6 @@
 <h1> Curriculum </h1>
+
+<% @topics.each do |topic| %>
+<!-- <%= content_tag(:h3, topic.title) %> -->
+<%= render partial: 'lessons/topic', locals: {topic: topic} %>
+<% end %>
