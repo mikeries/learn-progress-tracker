@@ -1,12 +1,12 @@
   <div class="panel panel-default">
       <div class="panel-heading">
           <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent='<%= "#accordion_topic_#{unit.topic.id}" %>' href='<%="#collapse_#{unit.topic.id}_#{unit.id}"%>'>
+              <a data-toggle="collapse" data-parent='<%= "#accordion_topic_#{unit.topic.id}" %>'  href='<%= "#" + collapse_id(unit) %>'>
                 <%= unit.title %>
               </a>
           </h4>
       </div>
-      <div id='collapse_<%="#{unit.topic.id}_#{unit.id}"%>' class="panel-collapse collapse">
+      <div id='<%= collapse_id(unit) %>' class="panel-collapse collapse">
         <div class='panel-body'>
           <% unit.lessons.each do |lesson| %>
             <%= render partial: 'lessons/lesson', locals: {lesson: lesson} %>
