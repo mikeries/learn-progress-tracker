@@ -12,6 +12,9 @@ RSpec.describe Lesson, :type => :model do
     it 'responds with Completed when the lesson has been completed' do
       expect(Lesson.first.status).to eq('Completed')
     end
+    it 'responds with Incomplete when the lesson has not been completed' do
+      expect(Lesson.find_by(title: "Virtual DOM" ).status).to eq('Incomplete')
+    end
   end
 
 end

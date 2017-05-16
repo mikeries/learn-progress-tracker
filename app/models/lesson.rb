@@ -9,6 +9,7 @@ class Lesson < CurriculumElement
   end
 
   def status
-    "Completed"
+    return "Completed" if self.complete
+    return "Incomplete" if not self.complete
   end
 end
