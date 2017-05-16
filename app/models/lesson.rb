@@ -7,4 +7,8 @@ class Lesson < CurriculumElement
   def url
     LEARN_ROOT + unit.topic.slug + '/' + unit.slug + '/' + self.slug
   end
+
+  def status
+    "Completed"
+  end
 end

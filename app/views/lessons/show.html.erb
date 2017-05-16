@@ -1,1 +1,31 @@
 <h1><%= @lesson.title %></h1>
+
+<h3>Unit: <%= @lesson.unit.title %></h3>
+<%= link_to @lesson.title, @lesson.url %>
+
+<p>
+  Status: <%= @lesson.status %>
+</p>
+
+<%= form_for @lesson do |f| %>
+<%= f.label :complete %>
+<%= f.check_box :complete %><br/>
+
+<%= f.label :visible %>
+<%= f.check_box :visible %><br/>
+
+<%= f.label :updated_at %>
+<%= f.date_field :updated_at %><br/>
+
+<%= f.label :content_type %>
+<%= f.text_field :content_type %><br/>
+
+<%= f.hidden_field :id %><br/>
+
+<%= f.label :slug %>
+<%= f.text_field :slug %><br/>
+
+<%= f.label :title %>
+<%= f.text_field :title %><br/>
+
+<% end %>
