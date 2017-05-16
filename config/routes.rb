@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   get '/dashboard' => 'sessions#dashboard'
 
-  resources :lessons, only: [:index]
+  resources :lessons, only: [:index, :show]
 end

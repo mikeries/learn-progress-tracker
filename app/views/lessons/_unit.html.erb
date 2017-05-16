@@ -1,7 +1,7 @@
   <div class="panel panel-default">
       <div class="panel-heading">
           <h4 class="panel-title">
-              <a data-toggle="collapse" data_parent='#accordion_topic_<%="#{unit.topic.id}"%>' href='#collapse_<%="#{unit.topic.id}"_"#{unit.id}"%>'>
+              <a data-toggle="collapse" data-parent='<%= "#accordion_topic_#{unit.topic.id}" %>' href='<%="#collapse_#{unit.topic.id}_#{unit.id}"%>'>
                 <%= unit.title %>
               </a>
           </h4>
