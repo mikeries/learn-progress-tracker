@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: "sessions#welcome"
 
   get '/dashboard' => 'sessions#dashboard'
+
+  resources :lessons, only: [:index]
 end
