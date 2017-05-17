@@ -4,8 +4,8 @@ class Student < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
-  has_many :student_lessons
-  has_many :lessons, through: :student_lessons
+  has_many :notes
+  has_many :lessons, through: :notes
 
   def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |student|

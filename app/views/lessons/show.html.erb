@@ -11,11 +11,11 @@
 <p>
   Type: <%= @lesson.content_type %>
 </p>
-<% if @student_lesson %>
+<% if @note %>
   <p>
-    Notes: <%= @student_lesson.notes %>
+    Notes: <%= @note.notes %>
   </p>
-  <%= link_to 'Edit', edit_note_path(@student_lesson) %>
+  <%= link_to 'Edit', edit_note_path(@note) %>
 <% else %>
   <%= link_to 'Create Note', new_note_path %>
 <% end %>

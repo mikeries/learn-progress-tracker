@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20170515204304) do
     t.integer "topic_id"
   end
 
-  create_table "student_lessons", force: :cascade do |t|
+  create_table "notes", force: :cascade do |t|
     t.integer "student_id"
-    t.text "notes"
+    t.text "content"
     t.integer "lesson_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

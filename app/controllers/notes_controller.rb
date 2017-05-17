@@ -2,10 +2,10 @@ class NotesController < ApplicationController
   before_action :authenticate_student!
 
   def edit
-    @student_lesson = current_student.student_lessons.find(params[:id])
+    @note = current_student.notes.find(params[:id])
   end
 
   def new
-    @student_lesson = current_student.student_lessons.build
+    @note = current_student.notes.build
   end
 end
