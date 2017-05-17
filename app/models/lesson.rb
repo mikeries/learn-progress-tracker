@@ -1,6 +1,7 @@
 class Lesson < CurriculumElement
-  has_many :notes
+  belongs_to :student
   belongs_to :unit
+  has_many :notes
 
   LEARN_ROOT = 'https://learn.co/tracks/full-stack-web-dev-with-react/'
 

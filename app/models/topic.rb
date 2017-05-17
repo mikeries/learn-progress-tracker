@@ -1,4 +1,5 @@
 class Topic < CurriculumElement
+  belongs_to :student
   has_many :units
   has_many :lessons, through: :units
 
