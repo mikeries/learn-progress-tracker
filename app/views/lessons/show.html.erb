@@ -13,9 +13,9 @@
 </p>
 <% if @note %>
   <p>
-    Notes: <%= @note.notes %>
+    Notes: <%= @note.content %>
   </p>
-  <%= link_to 'Edit', edit_note_path(@note) %>
+  <%= link_to 'Edit', edit_lesson_note_path(@lesson,@note) %>
 <% else %>
-  <%= link_to 'Create Note', new_note_path %>
+  <%= link_to 'Create Note', new_lesson_note_path(@lesson) %>
 <% end %>
