@@ -1,0 +1,11 @@
+# Fixes
+- Implement tags
+- Implement searching
+- Have lessons and units appear in the correct order
+- Add Track class and have all elements belong to a student
+  - Each track and Curriculum item will belong to a student
+  - New students get a track with an 'empty' curriculum.
+  - Allow students to move between tracks?
+- Figure out stats for the dashboard.
+- Remove unused data from database
+- make breadcrumb nav an operational partial
