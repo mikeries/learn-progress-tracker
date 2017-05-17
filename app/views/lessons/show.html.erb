@@ -15,4 +15,7 @@
   <p>
     Notes: <%= @student_lesson.notes %>
   </p>
+  <%= link_to 'Edit', edit_note_path(@student_lesson) %>
+<% else %>
+  <%= link_to 'Create Note', new_note_path %>
 <% end %>

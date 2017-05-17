@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/dashboard' => 'sessions#dashboard'
 
   resources :lessons, only: [:index, :show]
+  resources :notes, only: [:edit, :update, :new, :create]
 end
