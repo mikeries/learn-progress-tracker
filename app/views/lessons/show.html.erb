@@ -1,6 +1,4 @@
-<h1><%= @lesson.title %></h1>
-
-<h3>Unit: <%= @lesson.unit.title %></h3>
+<h3><%= breadcrumb_menu(@lesson) %></h3>
 <p>
   Link: <%= link_to @lesson.title, @lesson.url %>
 </p>
@@ -13,7 +11,12 @@
 </p>
 <% if @note %>
   <p>
-    Notes: <%= @note.content %>
+    <h4>
+      Notes:
+    </h4>
+    <p>
+      <%= @note.content %>
+    </p>
   </p>
   <%= link_to 'Edit', edit_lesson_note_path(@lesson,@note) %>
 <% else %>
