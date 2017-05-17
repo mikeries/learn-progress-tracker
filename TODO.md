@@ -9,3 +9,4 @@
 - Figure out stats for the dashboard.
 - Remove unused data from database
 - make breadcrumb nav an operational partial
+- add lesson type indicators to lessons page
