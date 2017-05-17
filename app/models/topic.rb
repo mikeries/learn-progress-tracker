@@ -1,5 +1,6 @@
 class Topic < CurriculumElement
   belongs_to :student
+  belongs_to :track
   has_many :units
   has_many :lessons, through: :units
 

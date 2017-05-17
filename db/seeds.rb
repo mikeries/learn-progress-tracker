@@ -8,11 +8,17 @@
 require 'json'
 
 file = File.read(Rails.root + 'db/curriculum-data.json')
+track_hash = JSON.parse(file)
+byebug
 
-curriculum_hash = JSON.parse(file)
+initialize = Student.find_or_create(email: 'initialize@student.edu', password: 'initialize')
 
-topics = curriculum_hash['topics']
+binding.pry
 
-topics.each do |topic_hash|
-  Topic.create(topic_hash)
-end
+initialize.tracks.create(track_hash)
+
+# topics = curriculum_hash['topics']
+#
+# topics.each do |topic_hash|
+#   Topic.create(topic_hash)
+# end
