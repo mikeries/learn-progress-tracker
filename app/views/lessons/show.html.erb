@@ -5,13 +5,9 @@
 
 <div class='tags'>
   <h4>Tags:</h4>
-  <ul>
-    <% @lesson.tags.each do |tag| %>
-    <li><%= tag.category %></li>
-    <% end %>
-  </ul>
   <div>
-    <%= form_for Tag.new do |f| %>
+    <%= form_for @lesson do |f| %>
+    
       <% if current_student.tags.empty? %>
         <p>
           You have not created any tags yet.
@@ -19,9 +15,12 @@
       <% else %>
         <%= f.collection_check_boxes :tag_ids, current_student.tags.all, :id, :category %><br>
       <% end %>
-      <%= f.hidden_field :lesson_id, value: @lesson.id %>
-      <%= f.label :category, "New Tag" %>
-      <%= f.text_field :category %>
+
+      <%= fields_for(:tags) do |tag_form| %>
+        <%= tag_form.label :category, "New Tag" %>
+        <%= tag_form.text_field :category %>
+      <% end %>
+
       <%= f.submit 'Create' %>
     <% end %>
   </div>
