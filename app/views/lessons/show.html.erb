@@ -10,6 +10,20 @@
     <li><%= tag.name %></li>
     <% end %>
   </ul>
+  <div>
+    <%= form_for Tag.new do |f| %>
+      <% if current_student.tags.empty? %>
+        <p>
+          You have not created any tags yet.
+        </p>
+      <% else %>
+        <%= f.collection_check_boxes :tag_ids, current_student.tags.all, :id, :category %><br>
+      <% end %>
+      <%= f.label :category, "New Tag" %>
+      <%= f.text_field :category %>
+      <%= f.submit 'Create' %>
+    <% end %>
+  </div>
 </div>
 
 <div class='notes'>

@@ -9,6 +9,8 @@ class Student < ApplicationRecord
   has_many :topics, through: :tracks
   has_many :units, through: :topics
   has_many :lessons, through: :units
+  has_many :lesson_tags, through: :lessons
+  has_many :tags, through: :lesson_tags
   belongs_to :current_track, class_name: 'Track', optional: true
 
   def self.from_omniauth(auth)
