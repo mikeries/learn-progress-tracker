@@ -19,6 +19,7 @@
       <% else %>
         <%= f.collection_check_boxes :tag_ids, current_student.tags.all, :id, :category %><br>
       <% end %>
+      <%= f.hidden_field :lesson_id %>
       <%= f.label :category, "New Tag" %>
       <%= f.text_field :category %>
       <%= f.submit 'Create' %>
