@@ -8,6 +8,11 @@ class Track < CurriculumElement
     topics_hash.each { |topic_hash| self.topics.build(topic_hash) }
   end
 
+  def student_id=(student_id)
+    super(student_id)
+    topics.each {|topic| topic.student_id=student_id}
+  end
+
   def completed_lessons
     lessons.select {|lesson| lesson.complete}.count
   end

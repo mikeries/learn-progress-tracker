@@ -6,6 +6,11 @@ class Unit < CurriculumElement
     lessons_hash.each { |lesson_hash| self.lessons.build(lesson_hash) }
   end
 
+  def student_id=(student_id)
+    super(student_id)
+    lessons.each {|lesson| lesson.student_id=student_id}
+  end
+
   def completed_lessons
     lessons.select {|lesson| lesson.complete}.count
   end

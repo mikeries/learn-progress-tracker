@@ -1,8 +1,9 @@
 class TagsController < ApplicationController
   def create
-    @tag = current_student.lessons.tags.build(tag_params)
+    @lesson = current_student.lessons.find(id: params[:tag][:lesson_id])
+    @tag = @lesson.tags.build(tag_params)
     if @tag.save
-      redirect_to lesson_path(@tag.lesson)
+      redirect_to lesson_path(@lesson)
     else
       :edit
     end
@@ -11,6 +12,6 @@ class TagsController < ApplicationController
   private
 
   def tag_params
-    params.require(:tag).permit(:category)
+    params.require(:tag).permit(:category, :lesson_id)
   end
 end

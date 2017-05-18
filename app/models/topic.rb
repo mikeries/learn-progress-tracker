@@ -7,12 +7,12 @@ class Topic < CurriculumElement
     units_hash.each { |unit_hash| self.units.build(unit_hash) }
   end
 
-  def completed_lessons
-    #lessons.inject(0) {|sum, lesson| sum = sum + 1 if lesson.complete }
+  def student_id=(student_id)
+    super(student_id)
+    units.each {|unit| unit.student_id=student_id}
+  end
 
-    # sum = 0
-    # units.each {|unit| sum = sum + unit.completed_lessons }
-    # sum
+  def completed_lessons
     lessons.select {|lesson| lesson.complete}.count
   end
 

@@ -17,7 +17,9 @@ class TracksController < ApplicationController
       file = File.read(Rails.root + 'db/full-stack-web-dev-with-react.json')
     end
     track_hash = JSON.parse(file)
-    current_student.current_track = current_student.tracks.create(track_hash)
+    track = current_student.tracks.create(track_hash)
+    track.student=current_student
+    current_student.current_track = track
     current_student.save
   end
 
