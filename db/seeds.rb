@@ -12,4 +12,3 @@ track_hash = JSON.parse(file)
 
 initializer = Student.create(email: 'initialize@student.edu', password: 'initialize')
 initializer.tracks.create(track_hash)
-initializer.save

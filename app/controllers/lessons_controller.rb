@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
   before_action :authenticate_student!
 
   def index
-    @topics = Topic.all
+    @topics = current_student.topics.all
   end
 
   def show
