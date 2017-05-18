@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170515204304) do
     t.integer "unit_id"
     t.integer "topic_id"
     t.integer "track_id"
+    t.integer "student_id"
   end
 
   create_table "notes", force: :cascade do |t|
