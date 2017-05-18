@@ -1,0 +1,8 @@
+<h3>Please choose which track you would like to start.</h3>
+
+<%= form_tag tracks_path do %>
+  <%= label_tag 'Track' %>
+  <%= select_tag 'track', options_for_select(['Bootcamp Prep', 'Full Stack Web Dev. With React']) %>
+  <br />
+  <%= submit_tag 'Select' %>
+<% end %>

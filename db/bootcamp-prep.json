@@ -1,0 +1,1155 @@
+{
+  "topics": [
+    {
+      "units": [
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "welcome-to-bootcamp-prep",
+              "title": "Welcome to Bootcamp Prep"
+            }
+          ],
+          "slug": "welcome-to-bootcamp-prep",
+          "title": "Welcome to Bootcamp Prep ",
+          "completed_all": true,
+          "started_any": true
+        }
+      ],
+      "slug": "bootcamp-prep-overview",
+      "title": "Bootcamp Prep Overview",
+      "completed_all": true,
+      "started_any": true
+    },
+    {
+      "units": [
+        {
+          "lessons": [
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "welcome",
+              "title": "Welcome"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "getting-to-know-html",
+              "title": "Getting to Know HTML"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "syntax-and-document-structure",
+              "title": "Syntax And Document Structure"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "understanding-html-images",
+              "title": "Understanding HTML Images"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "understanding-links-in-html",
+              "title": "Understanding Links in HTML"
+            }
+          ],
+          "slug": "html",
+          "title": "HTML",
+          "completed_all": false,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "styling-with-css-intro",
+              "title": "Styling With Css Intro"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "css-fundamentals",
+              "title": "CSS Fundamentals"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "css-selectors",
+              "title": "CSS Selectors"
+            }
+          ],
+          "slug": "css",
+          "title": "CSS",
+          "completed_all": false,
+          "started_any": false
+        }
+      ],
+      "slug": "html-fundamentals",
+      "title": "HTML Fundamentals",
+      "completed_all": false,
+      "started_any": true
+    },
+    {
+      "units": [
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "javascript-fundamentals-overview",
+              "title": "What You'll Learn\u00a0"
+            }
+          ],
+          "slug": "javascript-fundamentals-overview",
+          "title": "Javascript Fundamentals Overview",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "js-and-the-web",
+              "title": "JS And The Web"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "history-of-the-world",
+              "title": "History of Javascript"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "introduction-to-the-dom",
+              "title": "Introduction To The DOM"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "selecting-single-elements-readme",
+              "title": "Selecting Single Elements Readme"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "selecting-single-elements-lab",
+              "title": "Selecting Single Elements Lab"
+            }
+          ],
+          "slug": "javascript-basics",
+          "title": "JavaScript Basics",
+          "completed_all": false,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "strings-and-numbers",
+              "title": "Strings and Numbers"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "strings-and-numbers-lab",
+              "title": "Strings And Numbers Lab"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Lab",
+              "slug": "from-dom-to-node-and-the-ide",
+              "title": "From DOM To Node and the IDE"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "conditional-statements",
+              "title": "Conditional Statements"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Lab",
+              "slug": "practicing-conditional-statements",
+              "title": "Practicing Conditional Statements"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Lab",
+              "slug": "node-practice",
+              "title": "Node Practice"
+            }
+          ],
+          "slug": "programming-js-in-the-ide",
+          "title": "Programming JS In The IDE",
+          "completed_all": false,
+          "started_any": false
+        },
+        {
+          "lessons": [
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Readme",
+              "slug": "what-is-a-test",
+              "title": "What Is A Test"
+            },
+            {
+              "complete": false,
+              "viewed": false,
+              "content_type": "Lab",
+              "slug": "what-is-a-test-lab",
+              "title": "What Is A Test Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "javascript-variable-assignment-and-declaration",
+              "title": "JavaScript Variable Assignment and Declaration"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-functions",
+              "title": "Intro to Functions"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "intro-to-functions-lab",
+              "title": "Intro to Functions Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "functions-lab",
+              "title": "Functions Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "variables",
+              "title": "Variables"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "javascript-arithmetic-lab",
+              "title": "JavaScript Arithmetic Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "functions-and-variables-quiz",
+              "title": "Functions and Variables Quiz"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "javascript-scope",
+              "title": "JavaScript Scope"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "fix-the-scope-lab",
+              "title": "Fix the Scope Lab"
+            }
+          ],
+          "slug": "functions-and-scope",
+          "title": "Functions and Scope",
+          "completed_all": false,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "javascript-arrays",
+              "title": "JavaScript Arrays"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "javascript-arrays-lab",
+              "title": "Javascript Arrays Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "javascript-objects",
+              "title": "Javascript Objects"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "javascript-objects-lab",
+              "title": "Javascript Objects Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "javascript-objects-and-arrays-quiz",
+              "title": "Javascript Objects And Arrays Quiz"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "javascript-intro-to-looping",
+              "title": "Javascript Intro To Looping"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "beatles-loops-lab",
+              "title": "Beatles Loops Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "deli-counter",
+              "title": "Deli Counter"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "online-shopping-lab",
+              "title": "Online Shopping Lab"
+            }
+          ],
+          "slug": "data-structures",
+          "title": "Data Structures",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "the-dom",
+              "title": "The DOM "
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "traversing-nested-objects",
+              "title": "Traversing Nested Objects"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "the-dom-is-a-tree",
+              "title": "The DOM is a Tree"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "hide-and-seek-lab",
+              "title": "Hide And Seek Lab "
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "creating-and-inserting-nodes",
+              "title": "Creating And Inserting Nodes"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "javascript-callbacks",
+              "title": "Javascript Callbacks"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "listening-to-nodes",
+              "title": "Listening To Nodes"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "konami-code-lab",
+              "title": "Konami Code Lab"
+            }
+          ],
+          "slug": "the-dom",
+          "title": "The DOM",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "modifying-html-with-jquery",
+              "title": "Modifying HTML with jQuery"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "modifying-html-with-jquery-lab",
+              "title": "Modifying HTML with jQuery Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "document-ready",
+              "title": "Document Ready"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "jquery-selectors-lab",
+              "title": "jQuery Selectors Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "jquery-event-listeners-lab",
+              "title": "jQuery Event Listeners Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "moving-things-with-javascript",
+              "title": "Moving Things With Javascript"
+            }
+          ],
+          "slug": "jquery",
+          "title": "jQuery",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "rock-dodger",
+              "title": "Rock Dodger"
+            }
+          ],
+          "slug": "javascript-fundamentals-project",
+          "title": "Javascript Fundamentals Project",
+          "completed_all": true,
+          "started_any": true
+        }
+      ],
+      "slug": "javascript-fundamentals",
+      "title": "Javascript Fundamentals",
+      "completed_all": false,
+      "started_any": true
+    },
+    {
+      "units": [
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "ruby-fundamentals-overview",
+              "title": "What You'll Learn"
+            }
+          ],
+          "slug": "ruby-fundamentals-overview",
+          "title": "Ruby Fundamentals Overview",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-tic-tac-toe",
+              "title": "Intro to Tic Tac Toe"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "hello-world",
+              "title": "Hello World"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "welcome-to-tic-tac-toe",
+              "title": "Welcome to Tic Tac Toe"
+            }
+          ],
+          "slug": "introduction",
+          "title": "Introduction",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-irb",
+              "title": "Intro to IRB"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "reading-error-messages",
+              "title": "Reading Error Messages"
+            }
+          ],
+          "slug": "debugging",
+          "title": "Debugging",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "about-variable-assignment",
+              "title": "About Variable Assignment"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "variable-lab",
+              "title": "Variable Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "ruby-data-types",
+              "title": "Ruby Data Types"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "array-basics",
+              "title": "Array Basics"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tic-tac-toe-board",
+              "title": "Tic Tac Toe Board"
+            }
+          ],
+          "slug": "variables-and-arrays",
+          "title": "Variables and Arrays",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-methods",
+              "title": "Intro to Methods"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "string-interpolation",
+              "title": "String Interpolation "
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "puts-and-return",
+              "title": "Puts and Return"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "display-tic-tac-board-example",
+              "title": "Display Tic Tac Board Example"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "methods-and-arguments",
+              "title": "Methods and Arguments"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tdd-rspec-and-learn",
+              "title": "TDD, Rspec, and Learn "
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "default-arguments",
+              "title": "Default Arguments"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "say-hello",
+              "title": "Say Hello"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "interpolation-super-power",
+              "title": "Interpolation Super Power"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "display-tic-tac-toe-board",
+              "title": "Display Tic Tac Toe Board"
+            }
+          ],
+          "slug": "methods",
+          "title": "Methods",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-command-line-applications",
+              "title": "Intro to Command Line Applications"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "cli-applications-in-ruby",
+              "title": "CLI Applications in Ruby"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "gets-cli-input",
+              "title": "gets CLI Input"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "greeting-cli-lab",
+              "title": "Greeting CLI Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tic-tac-toe-move",
+              "title": "Tic Tac Toe Move"
+            }
+          ],
+          "slug": "command-line-applications",
+          "title": "Command Line Applications",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "truthiness",
+              "title": "Truthiness"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "booleans",
+              "title": "Booleans"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "about-ruby-conditionals",
+              "title": "About Ruby Conditionals"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "rspec-fizzbuzz",
+              "title": "RSpec Fizzbuzz"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tic-tac-toe-position-taken",
+              "title": "Tic Tac Toe Position Taken"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "valid-tic-tac-toe-move",
+              "title": "Valid Tic Tac Toe Move"
+            }
+          ],
+          "slug": "logic-and-conditionals",
+          "title": "Logic and Conditionals",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-loops",
+              "title": "Intro to Loops"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "loops",
+              "title": "Loops"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "while-and-until-loops",
+              "title": "While and Until Loops"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "while-and-until-loops-lab",
+              "title": "While and Until Loops Lab"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tic-tac-toe-turn",
+              "title": "Tic Tac Toe Turn"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tic-tac-toe-play-loop",
+              "title": "Tic Tac Toe Play Loop"
+            }
+          ],
+          "slug": "loops",
+          "title": "Loops",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "iteration-and-abstraction",
+              "title": "Iteration and Abstraction"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-ruby-iterators",
+              "title": "Intro to Ruby Iterators"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tic-tac-toe-current-player",
+              "title": "Tic Tac Toe Current Player"
+            }
+          ],
+          "slug": "iteration",
+          "title": "Iteration",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "nested-arrays",
+              "title": "Nested Arrays"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "boolean-enumerables",
+              "title": "Boolean Enumerables"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "search-enumerables",
+              "title": "Search Enumerables"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tic-tac-toe-game-status",
+              "title": "Tic Tac Toe Game Status"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "tictactoe-rb",
+              "title": "TicTacToe.rb"
+            }
+          ],
+          "slug": "tic-tac-toe",
+          "title": "Tic Tac Toe",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-object-orientation",
+              "title": "Intro to Object Orientation"
+            }
+          ],
+          "slug": "intro-to-object-orientation",
+          "title": "Intro to Object Orientation",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "intro-to-classes-and-instances",
+              "title": "Intro to Classes and Instances"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "classes-and-instances-lab",
+              "title": "Classes and Instances Lab"
+            }
+          ],
+          "slug": "classes-and-instances",
+          "title": "Classes and Instances",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "instance-methods",
+              "title": "Instance Methods"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "instance-methods-lab",
+              "title": "Instance Methods Lab"
+            }
+          ],
+          "slug": "instance-methods",
+          "title": "Instance Methods",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "instance-variables",
+              "title": "Instance Variables"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "object-attributes",
+              "title": "Object Attributes"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "object-attributes-lab",
+              "title": "Object Attributes Lab"
+            }
+          ],
+          "slug": "object-properties",
+          "title": "Object Properties",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "object-initialization",
+              "title": "Object Initialization"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "object-initialize-lab",
+              "title": "Object Initialize Lab"
+            }
+          ],
+          "slug": "object-lifecycle",
+          "title": "Object Lifecycle",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "oo-barking-dog",
+              "title": "OO Barking Dog"
+            }
+          ],
+          "slug": "object-models",
+          "title": "Object Models",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "procedural-vs-object-orientation",
+              "title": "Procedural vs Object Orientation"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Lab",
+              "slug": "oo-tic-tac-toe",
+              "title": "OO Tic Tac Toe"
+            }
+          ],
+          "slug": "oo-tic-tac-toe",
+          "title": "OO Tic Tac Toe",
+          "completed_all": true,
+          "started_any": true
+        }
+      ],
+      "slug": "ruby-fundamentals",
+      "title": "Ruby Fundamentals",
+      "completed_all": true,
+      "started_any": true
+    },
+    {
+      "units": [
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "bootcamp-prep-interview-prep-overview",
+              "title": "Interview Prep Overview"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "bootcamp-prep-communicating-with-recruiters-and-hr-professionals",
+              "title": "Communicating with Recruiters and HR Professionals"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "bootcamp-prep-research-before-an-interview",
+              "title": "Research Before an Interview"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "phone-and-video-interviews",
+              "title": "Phone And Video Interviews"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "preparation-for-the-interview",
+              "title": "Preparation for the Interview"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "bootcamp-prep-answering-non-technical-interview-questions",
+              "title": "Answering Non-Technical Interview Questions"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "bootcamp-prep-talking-about-apps-you-ve-built",
+              "title": "Talking About Apps You've Built"
+            }
+          ],
+          "slug": "interviewing",
+          "title": "Interviewing",
+          "completed_all": true,
+          "started_any": true
+        },
+        {
+          "lessons": [
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "bootcamp-prep-technical-interviewing",
+              "title": "Technical Interviewing"
+            },
+            {
+              "complete": true,
+              "viewed": true,
+              "content_type": "Readme",
+              "slug": "code-challenges",
+              "title": "Code Challenges"
+            }
+          ],
+          "slug": "technical-interviewing",
+          "title": "Technical Interviewing",
+          "completed_all": true,
+          "started_any": true
+        }
+      ],
+      "slug": "interview-prep",
+      "title": "Interview Prep ",
+      "completed_all": true,
+      "started_any": true
+    }
+  ],
+
+  "slug": "bootcamp-prep",
+  "title": "Bootcamp Prep "
+}

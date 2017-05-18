@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find(params[:id])
+    @lesson = current_student.find(params[:id])
     @note = @lesson.notes.find_by(student_id: current_student.id)
   end
 end

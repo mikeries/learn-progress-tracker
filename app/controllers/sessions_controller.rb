@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 
   def dashboard
     return redirect_to root_path unless student_signed_in?
+    return redirect_to tracks_path if current_student.tracks.empty?
   end
 
 end
