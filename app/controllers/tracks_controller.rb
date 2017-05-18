@@ -5,6 +5,7 @@ class TracksController < ApplicationController
 
   def create
     initialize_track(params[:track])
+    redirect_to dashboard_path
   end
 
   private
@@ -16,7 +17,8 @@ class TracksController < ApplicationController
       file = File.read(Rails.root + 'db/full-stack-web-dev-with-react.json')
     end
     track_hash = JSON.parse(file)
-    current_student.tracks.create(track_hash)
+    current_student.current_track = current_student.tracks.create(track_hash)
+    current_student.save
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515204304) do
+ActiveRecord::Schema.define(version: 20170518175300) do
 
   create_table "curriculum_elements", force: :cascade do |t|
     t.boolean "complete"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170515204304) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.integer "current_track_id"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["provider"], name: "index_students_on_provider"
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true

@@ -9,6 +9,7 @@ class Student < ApplicationRecord
   has_many :topics, through: :tracks
   has_many :units, through: :topics
   has_many :lessons, through: :units
+  belongs_to :current_track, class_name: 'Track'
 
   def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |student|
