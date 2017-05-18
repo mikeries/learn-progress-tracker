@@ -18,8 +18,4 @@ module ApplicationHelper
     links.join(" > ")
   end
 
-  def current_track
-    @current_track ||= current_student.current_track
-  end
-
 end
