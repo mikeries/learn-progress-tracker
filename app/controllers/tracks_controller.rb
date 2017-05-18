@@ -18,7 +18,6 @@ class TracksController < ApplicationController
     end
     track_hash = JSON.parse(file)
     track = current_student.tracks.create(track_hash)
-    track.student=current_student
     current_student.current_track = track
     current_student.save
   end
