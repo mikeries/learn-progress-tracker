@@ -1,24 +1,30 @@
 <h3><%= breadcrumb_menu(@lesson) %></h3>
 <p>
-  Link: <%= link_to @lesson.title, @lesson.url %>
+  Type: <%= @lesson.content_type %>   Status: <%= @lesson.status %>   Link: <%= link_to @lesson.title, @lesson.url %>
 </p>
 
-<p>
-  Status: <%= @lesson.status %>
-</p>
-<p>
-  Type: <%= @lesson.content_type %>
-</p>
-<% if @note %>
-  <p>
-    <h4>
-      Notes:
-    </h4>
+<div class='tags'>
+  <h4>Tags:</h4>
+  <ul>
+    <% @lesson.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class='notes'>
+  <h4>
+    Notes:
+  </h4>
+  <% if @note %>
     <p>
       <%= @note.content %>
     </p>
-  </p>
-  <%= link_to 'Edit', edit_lesson_note_path(@lesson,@note) %>
-<% else %>
-  <%= link_to 'Create Note', new_lesson_note_path(@lesson) %>
-<% end %>
+    <%= link_to 'Edit', edit_lesson_note_path(@lesson,@note) %>
+  <% else %>
+    <p>
+       You have no notes for this lesson.
+    </p>
+    <%= link_to 'Create Note', new_lesson_note_path(@lesson) %>
+  <% end %>
+</div>
