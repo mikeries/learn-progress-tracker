@@ -24,11 +24,13 @@
           <%= link_to "Hello, #{current_student.email}!", dashboard_path %>
         </li>
         <li>
-          <%= link_to 'Lessons', lessons_url %>
-        </li>
-        <li>
           <%= link_to "Log Out", destroy_student_session_path, method: 'DELETE' %>
         </li>
+        <% if current_track %>
+          <li>
+            <%= link_to 'Lessons', lessons_url %>
+          </li>
+        <% end %>
        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
