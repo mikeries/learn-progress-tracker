@@ -1,4 +1,5 @@
-<h3><%= breadcrumb_menu(@lesson) %></h3>
+<p><%= breadcrumb_menu(@lesson) %></p>
+<h3><%= @lesson.title %></h3>
 <p>
   Type: <%= @lesson.content_type %>   Status: <%= @lesson.status %>   Link: <%= link_to @lesson.title, @lesson.url %>
 </p>
