@@ -1,4 +1,4 @@
 <%= link_to current_track.title, lessons_path %> &gt;
-<%= link_to lesson.unit.topic.title, lessons_path %> &gt;
-<%= link_to lesson.unit.title, lessons_path %> &gt;
-<%= link_to lesson.title, lessons_path %> &gt;
+<%= link_to lesson.unit.topic.title, element_path(lesson.unit.topic) %> &gt;
+<%= link_to lesson.unit.title, element_path(lesson.unit) %> &gt;
+<%= link_to lesson.title, lesson_path(lesson) %> &gt;
