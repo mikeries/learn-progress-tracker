@@ -1,4 +1,4 @@
-<p><%= breadcrumb_menu(@lesson) %></p>
+<%= render partial: 'breadcrumbs', locals: {lesson: @lesson} %>
 <h3><%= @lesson.title %></h3>
 <p>
   Type: <%= @lesson.content_type %>   Status: <%= @lesson.status %>   Link: <%= link_to @lesson.title, @lesson.url %>
