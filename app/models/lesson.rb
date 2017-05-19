@@ -1,4 +1,5 @@
 class Lesson < CurriculumElement
+  belongs_to :student
   belongs_to :unit
   has_many :notes
   has_many :lesson_tags
@@ -22,14 +23,12 @@ class Lesson < CurriculumElement
       end
   end
 
-  def next_lesson_path
-    next_lesson_id = current_track.lessons.where('id > ?', self.id).first
-    lesson_path(next_lesson_id)
+  def next_lesson_id
+    student.lessons.where('id > ?', self.id).first
   end
 
-  def previous_lesson_path
-    previous_lesson_id = current_track.lessons.where('id < ?', self.id).last
-    lesson_path(previous_lesson_id)
+  def previous_lesson_id
+    student.lessons.where('id < ?', self.id).last
   end
 
 end

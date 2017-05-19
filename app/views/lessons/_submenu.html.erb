@@ -1,21 +1,13 @@
 <div class='btn-toolbar'>
   <div class="btn-group" role="group">
 
-    <button class="btn btn-default">
-      <%= link_to 'Back', lessons_path %>
-    </button>
-
-    <button class="btn btn-default">
-      <%= link_to 'Previous Lesson', previous_lesson_path(lesson) %>
-    </button>
-
-    <button class="btn btn-default">
-      <%= link_to 'Next Lesson', next_lesson_path(lesson) %>
-    </button>
+    <%= nav_button_for(lesson,'Index') %>
+    <%= nav_button_for(lesson, 'Previous') %>
+    <%= nav_button_for(lesson, 'Next') %>
 
   </div>
-  
+
   <div class='btn-group' role='group'>
-    <button class="btn btn-default">Edit Lesson</button>
+    <%= nav_button_for(lesson, 'Edit') %>
   </div>
 </div>
