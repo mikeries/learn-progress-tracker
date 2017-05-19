@@ -7,7 +7,7 @@
   <h4>Tags:</h4>
   <div>
     <%= form_for @lesson do |f| %>
-    
+
       <% if current_student.tags.empty? %>
         <p>
           You have not created any tags yet.
@@ -16,7 +16,7 @@
         <%= f.collection_check_boxes :tag_ids, current_student.tags.all, :id, :category %><br>
       <% end %>
 
-      <%= fields_for(:tags) do |tag_form| %>
+      <%= f.fields_for :tags, Tag.new do |tag_form| %>
         <%= tag_form.label :category, "New Tag" %>
         <%= tag_form.text_field :category %>
       <% end %>

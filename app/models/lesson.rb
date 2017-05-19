@@ -10,6 +10,18 @@ class Lesson < CurriculumElement
     LEARN_ROOT + unit.topic.slug + '/' + unit.slug + '/' + self.slug
   end
 
+  def tags_attributes=(tags_attributes)
+    tags_attributes.each do |k, tag_attr|
+        unless tag_attr.nil?
+          tag_category = tag_attr[:category]
+          if !tag_category.empty?
+            tag = Tag.find_or_create_by(category: tag_category)
+            self.tags << tag
+          end
+        end
+      end
+  end
+
   def status
     return "Completed" if self.complete
     return "Incomplete" if not self.complete
