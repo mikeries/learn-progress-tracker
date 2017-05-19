@@ -15,11 +15,21 @@ class Lesson < CurriculumElement
         unless tag_attr.nil?
           tag_category = tag_attr[:category]
           if !tag_category.empty?
-            tag = Tag.find_or_create_by(category: tag_category)
+            tag = current_student.tags.find_or_create_by(category: tag_category)
             self.tags << tag
           end
         end
       end
+  end
+
+  def next_lesson_path
+    next_lesson_id = current_track.lessons.where('id > ?', self.id).first
+    lesson_path(next_lesson_id)
+  end
+
+  def previous_lesson_path
+    previous_lesson_id = current_track.lessons.where('id < ?', self.id).last
+    lesson_path(previous_lesson_id)
   end
 
 end
