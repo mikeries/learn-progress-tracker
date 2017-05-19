@@ -23,4 +23,14 @@ module LessonHelper
     lessons_path + '#' + collapse_id(element)
   end
 
+  def type_icon_for(lesson, options=[])
+    options += ['fa']
+    if lesson.content_type == 'Lab'
+      options += ['fa-flask']
+    else
+      options += ['fa-book']
+    end
+    content_tag :i, nil, class: options
+  end
+
 end

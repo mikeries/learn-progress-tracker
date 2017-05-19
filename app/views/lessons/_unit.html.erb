@@ -16,11 +16,7 @@
         <div class='panel-body'>
           <% unit.lessons.each do |lesson| %>
             <div>
-              <% if lesson.content_type == 'Lab' %>
-                <i class='fa fa-flask'></i>
-              <% elsif lesson.content_type == 'Readme' %>
-                <i class='fa fa-book'></i>
-              <% end %>
+              <%= type_icon_for(lesson) %>
               <%= link_to lesson.title, lesson_path(lesson.id) %>
             </div>
           <% end %>
