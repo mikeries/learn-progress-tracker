@@ -35,14 +35,14 @@
       </ul>
 
       <div class="pull-right">
-        <form class="navbar-form" role="search">
+        <%= form_tag('/search', method: :get, class: 'navbar-form', role: 'search') do %>
           <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-              <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-              </div>
+            <%= text_field_tag 'search', 'Search',class: "form-control", placeholder: "Search" %>
+            <div class='input-group-btn'>
+              <%= button_tag  content_tag(:i, nil, class:"fa fa-search"), class:'btn btn-default' %>
+            </div>
           </div>
-        </form>
+        <% end %>
       </div>
     </div><!--/.nav-collapse -->
   </div>
