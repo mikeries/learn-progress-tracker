@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
   before_action :authenticate_student!
 
-  def index
+  def search
     @search_term = params[:search]
     text = '%' + @search_term + '%'
 
