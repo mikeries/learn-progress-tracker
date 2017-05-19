@@ -16,7 +16,7 @@ class Lesson < CurriculumElement
         unless tag_attr.nil?
           tag_category = tag_attr[:category]
           if !tag_category.empty?
-            tag = current_student.tags.find_or_create_by(category: tag_category)
+            tag = Tag.find_or_create_by(category: tag_category)
             self.tags << tag
           end
         end
