@@ -10,6 +10,11 @@ class LessonsController < ApplicationController
     @note = @lesson.notes.find_by(student_id: current_student.id)
   end
 
+  def edit
+    @lesson = current_track.lessons.find(params[:id])
+    @note = @lesson.notes.find_by(student_id: current_student.id)
+  end
+
   def update
     @lesson = Lesson.find(params[:id])
     if @lesson.update(lesson_params)
