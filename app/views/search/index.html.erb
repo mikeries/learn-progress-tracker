@@ -1,1 +1,7 @@
-Search results:
+<h3>Search results for '<%= @search_term %>':</h3>
+
+<% @lessons.each do |lesson| %>
+  <div>
+    <%= link_to lesson.title, lesson_path(lesson) %>
+  </div>
+<% end %>
