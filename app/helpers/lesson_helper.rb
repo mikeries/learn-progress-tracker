@@ -25,21 +25,15 @@ module LessonHelper
 
   def type_icon_for(lesson, options=[])
     options += ['fa']
-    if lesson.content_type == 'Lab'
-      options += ['fa-flask']
-    else
-      options += ['fa-book']
-    end
+    options += lesson.content_type == 'Lab' ? ['fa-flask'] : ['fa-book']
+
     content_tag :i, nil, class: options
   end
 
   def status_icon_for(lesson, options=[])
     options += ['fa']
-    if lesson.complete
-      options += ['fa-check-circle-o']
-    else
-      options += ['fa-circle-o']
-    end
+    options += lesson.complete ? ['fa-check-circle-o'] : ['fa-circle-o']
+
     content_tag :i, nil, class: options
   end
 

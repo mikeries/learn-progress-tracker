@@ -4,10 +4,10 @@ class Lesson < CurriculumElement
   has_many :lesson_tags
   has_many :tags, through: :lesson_tags
 
-  LEARN_ROOT = 'https://learn.co/tracks/full-stack-web-dev-with-react/'
+  LEARN_ROOT = 'https://learn.co/tracks/'
 
   def url
-    LEARN_ROOT + unit.topic.slug + '/' + unit.slug + '/' + self.slug
+    LEARN_ROOT + unit.topic.track.slug + '/' + unit.topic.slug + '/' + unit.slug + '/' + self.slug
   end
 
   def tags_attributes=(tags_attributes)
@@ -22,8 +22,4 @@ class Lesson < CurriculumElement
       end
   end
 
-  def status
-    return "Completed" if self.complete
-    return "Incomplete" if not self.complete
-  end
 end
