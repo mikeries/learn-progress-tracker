@@ -5,6 +5,7 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
   has_many :notes
+  has_many :curriculum_elements
   has_many :tracks
   has_many :topics
   has_many :units
