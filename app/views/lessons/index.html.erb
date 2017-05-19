@@ -3,7 +3,5 @@
 </h1>
 
 <div class="panel-group" id="accordion_track">
-  <% @topics.each do |topic| %>
-  <%= render partial: 'lessons/topic', locals: {topic: topic} %>
-  <% end %>
+  <%= render partial: 'topic', collection: @topics %>
 </div>

@@ -10,9 +10,7 @@
     <div <%= collapse_id_for(topic) %> class="panel-collapse collapse">
         <div class="panel-body">
             <div class="panel-group" <%= accordion_id_for(topic) %>>
-              <% topic.units.each do |unit| %>
-                <%= render partial: 'lessons/unit', locals: {unit: unit} %>
-              <% end %>
+              <%= render partial: 'lessons/unit', collection: topic.units %>
             </div>
         </div>
     </div>
