@@ -13,7 +13,7 @@
           You have not created any tags yet.
         </p>
       <% else %>
-        <%= f.collection_check_boxes :tag_ids, current_student.tags.all, :id, :category %><br>
+        <%= f.collection_check_boxes :tag_ids, current_student.tags.distinct, :id, :category %><br>
       <% end %>
 
       <%= f.fields_for :tags, Tag.new do |tag_form| %>
