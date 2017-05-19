@@ -1,10 +1,11 @@
 <%= render partial: 'breadcrumbs', locals: {lesson: @lesson} %>
 <h3>
+  <%= status_icon_for(@lesson) %>
   <%= type_icon_for(@lesson) %>
   <%= @lesson.title %>
 </h3>
 <p>
-  Status: <%= @lesson.status %>   Learn Link: <%= link_to @lesson.title, @lesson.url %>
+Learn Link: <%= link_to @lesson.title, @lesson.url %>
 </p>
 
 <div class='tags'>

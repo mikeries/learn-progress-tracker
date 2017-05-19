@@ -33,4 +33,14 @@ module LessonHelper
     content_tag :i, nil, class: options
   end
 
+  def status_icon_for(lesson, options=[])
+    options += ['fa']
+    if lesson.complete
+      options += ['fa-check-circle-o']
+    else
+      options += ['fa-circle-o']
+    end
+    content_tag :i, nil, class: options
+  end
+
 end

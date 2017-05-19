@@ -16,6 +16,7 @@
         <div class='panel-body'>
           <% unit.lessons.each do |lesson| %>
             <div>
+              <%= status_icon_for(lesson) %>
               <%= type_icon_for(lesson) %>
               <%= link_to lesson.title, lesson_path(lesson.id) %>
             </div>
