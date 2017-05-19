@@ -15,17 +15,25 @@
  */
  @import "bootstrap";
 
- body {
-   padding-top: 70px;
-   padding-bottom: 30px;
- }
+body {
+ padding-top: 70px;
+ padding-bottom: 30px;
+}
 
- .progress {
-   height: 4px;
-   margin-bottom:0px;
-   margin-top:5px;
- }
+.progress {
+ height: 4px;
+ margin-bottom:0px;
+ margin-top:5px;
+}
 
- .progress-bar {
-   background-color: green;
- }
+.progress-bar {
+ background-color: green;
+}
+
+.panel-heading > a,
+.panel-heading > a:hover,
+.panel-heading > a:visited,
+{
+ text-decoration: none;
+ color: black;
+}
