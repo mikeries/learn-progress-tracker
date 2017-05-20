@@ -1,15 +1,18 @@
-<%= form_for lesson do |f| %>
+<div class='panel-body'>
+  <%= form_for lesson do |f| %>
 
-  <% if current_student.tags.empty? %>
-    <p>You have not created any tags yet.</p>
-  <% else %>
-    <%= f.collection_check_boxes :tag_ids, current_student.tags.distinct, :id, :category %><br>
+    <% if current_student.tags.empty? %>
+      <p>You have not created any tags yet.</p>
+    <% else %>
+      <%= f.collection_check_boxes :tag_ids, current_student.tags.distinct, :id, :category %>
+    <% end %>
+    <hr />
+    <%= f.fields_for :tags, Tag.new do |tag_form| %>
+      <%= tag_form.label :category, "New Tag:" %>
+      <%= tag_form.text_field :category %>
+    <% end %>
+    <hr />
+    <%= f.button 'Update Tags', class:['btn','btn-default'] %>
+    <%= nav_button_for('Back', lesson_path(lesson)) %>
   <% end %>
-
-  <%= f.fields_for :tags, Tag.new do |tag_form| %>
-    <%= tag_form.label :category, "New Tag" %>
-    <%= tag_form.text_field :category %>
-  <% end %>
-
-  <%= f.submit 'Update Tags' %>
-<% end %>
+</div>
