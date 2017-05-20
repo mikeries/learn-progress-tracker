@@ -4,6 +4,7 @@
     <%= f.hidden_field :lesson_id %>
 
     <%= f.text_area :content %><br />
-    <%= f.submit "Save" %>
+    <%= f.button "Save", class:['btn','btn-default'] %>
+    <%= nav_button_for('Back', lesson_path(@note.lesson)) %>
   <% end %>
 </div>

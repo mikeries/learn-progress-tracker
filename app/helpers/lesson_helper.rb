@@ -37,8 +37,7 @@ module LessonHelper
     content_tag :i, nil, class: options
   end
 
-  def nav_button_for(button_type)
-    path = lessons_path
+  def nav_button_for(button_type, path = lessons_path)
 
     case button_type
     when 'Index'
