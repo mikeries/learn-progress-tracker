@@ -25,7 +25,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to lesson_path(@note.lesson)
     else
-      flash[:error] = @note.errors.full_messages.join("<br>").html_safe
+      flash.now[:error] = @note.errors.full_messages.join("<br>").html_safe
       render :new
     end
   end
@@ -36,7 +36,7 @@ class NotesController < ApplicationController
     if @note.valid?
       redirect_to lesson_path(@note.lesson)
     else
-      flash[:error] = @note.errors.full_messages.join("<br>").html_safe
+      flash.now[:error] = @note.errors.full_messages.join("<br>").html_safe
       render :edit
     end
   end
