@@ -13,7 +13,7 @@
   </div>
   <div class='tag-list panel-body'>
     <%= "You have no tags for this lesson." if @lesson.tags.empty? %>
-    <%= render @lesson.tags unless @lesson.tags.empty?%>
+    <%= render @lesson.tags.order(:category).distinct unless @lesson.tags.empty?%>
   </div>
 </div>
 
