@@ -1,6 +1,15 @@
 class NotesController < ApplicationController
   before_action :authenticate_student!
 
+  def index
+    @lesson = Lesson.find(session[:current_lesson]) unless session[:lesson_id].nil?
+    if @lesson
+      redirect_to lesson_path(@lesson)
+    else
+      redirect_to lessons_path
+    end
+  end
+
   def edit
     @note = current_student.notes.find(params[:id])
   end
@@ -17,7 +26,9 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to lesson_path(@note.lesson)
     else
-      :edit
+      flash[:error] = @note.errors.full_messages.join("")
+      session[:current_lesson] = @note.lesson.id
+      render :new
     end
   end
 
@@ -27,7 +38,8 @@ class NotesController < ApplicationController
     if @note.valid?
       redirect_to lesson_path(@note.lesson)
     else
-      :edit
+      flash[:error] = @note.errors.full_messages.join("")
+      render :edit
     end
   end
 
