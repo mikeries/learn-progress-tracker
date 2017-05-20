@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/search' => 'search#search'
 
   resources :lessons, only: [:index, :show, :update, :edit] do
-    resources :notes, only: [:edit, :new]
+    resources :notes, only: [:index, :show, :edit, :new, :create, :update]
   end
 
   resources :notes, only: [:index, :edit, :update, :new, :create]
