@@ -17,7 +17,7 @@ class Lesson < CurriculumElement
           tag_category = tag_attr[:category]
           if !tag_category.blank?
             tag = Tag.find_or_create_by(category: tag_category)
-            self.tags << tag
+            self.tags << tag unless LessonTag.exists?(tag_id: tag.id, lesson_id: self.id)
           end
         end
       end
