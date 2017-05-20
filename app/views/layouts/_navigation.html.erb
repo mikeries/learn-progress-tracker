@@ -9,41 +9,17 @@
       </button>
     <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
     </div>
+
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-       <!--  nav here -->
-       <% if not student_signed_in? %>
-        <li>
-          <%= link_to 'Sign Up', new_student_registration_path %>
-        </li>
-        <li>
-          <%= link_to 'Sign In', new_student_session_path %>
-        </li>
-       <% else %>
-        <li>
-          <%= link_to "Hello, #{current_student.email}!", dashboard_path %>
-        </li>
-        <li>
-          <%= link_to "Log Out", destroy_student_session_path, method: 'DELETE' %>
-        </li>
-        <% if current_track %>
-          <li>
-            <%= link_to 'Lessons', lessons_url %>
-          </li>
+        <% if not student_signed_in? %>
+          <%= render 'layouts/not-signed-in' %>
+        <% else %>
+          <%= render 'layouts/signed-in' %>
         <% end %>
-       <% end %>
       </ul>
 
-      <div class="pull-right">
-        <%= form_tag('/search', method: :get, class: 'navbar-form', role: 'search') do %>
-          <div class="input-group">
-            <%= text_field_tag 'search', nil,class: "form-control", placeholder: "Search" %>
-            <div class='input-group-btn'>
-              <%= button_tag  content_tag(:i, nil, class:"fa fa-search"), class:'btn btn-default' %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <%= render 'layouts/search' if student_signed_in? %>
     </div><!--/.nav-collapse -->
   </div>
 </div>
