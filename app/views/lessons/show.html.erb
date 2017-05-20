@@ -8,7 +8,8 @@
 
 <div class='tags panel panel-default'>
   <div class="panel-heading">
-    Tags
+    <span>Tags</span>
+    <%= nav_button_for('Tags') %>
   </div>
   <div class='panel-body'>
     <%= "You have no tags for this lesson." if @lesson.tags.empty? %>
@@ -18,7 +19,8 @@
 
 <div class='notes panel panel-default'>
   <div class='panel-heading'>
-    Notes
+    <span>Notes</span>
+    <%= nav_button_for('Notes') %>
   </div>
   <div class='panel-body'>
     <%= "You have no notes for this lesson." if @note.nil? %>

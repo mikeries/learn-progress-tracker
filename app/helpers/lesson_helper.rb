@@ -37,21 +37,23 @@ module LessonHelper
     content_tag :i, nil, class: options
   end
 
-  def nav_button_for(lesson, button_type)
+  def nav_button_for(button_type)
     path = lessons_path
 
     case button_type
     when 'Index'
       path = lessons_path
     when 'Next'
-      path = lesson_path(lesson.next_lesson_id) unless lesson.next_lesson_id.nil?
-    when 'Edit'
-      path = edit_lesson_path(lesson)
+      path = lesson_path(@lesson.next_lesson_id) unless @lesson.next_lesson_id.nil?
     when 'Previous'
-      path = lesson_path(lesson.previous_lesson_id) unless lesson.previous_lesson_id.nil?
+      path = lesson_path(@lesson.previous_lesson_id) unless @lesson.previous_lesson_id.nil?
+    when 'Tags'
+      path = edit_lesson_path(@lesson)
+    when 'Notes'
+      path = @note ? edit_lesson_note_path(@lesson, @note) : new_lesson_note_path(@lesson)
     end
 
-    content_tag(:button, (link_to button_type, path), class:['btn','btn-default'])
+    link_to "<button type='button' class='btn btn-default'>#{button_type}</button>".html_safe, path
   end
 
 end
