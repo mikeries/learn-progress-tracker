@@ -4,16 +4,17 @@
     <% if current_student.tags.empty? %>
       <p>You have not created any tags yet.</p>
     <% else %>
-      <%= f.collection_check_boxes(:tag_ids, current_student.tags.order(:category).distinct, :id, :category) do |b| %>
-        <div class='tag'>
+      <div class='tag-list'>
+        <%= f.collection_check_boxes(:tag_ids, current_student.tags.order(:category).distinct, :id, :category) do |b| %>
           <span class='tag-label'>
             <%= b.object.category %>
           </span>
           <span class='check_box'>
             <%= b.check_box %>
           </span>
-        </div>
-      <% end %>
+          <br />
+        <% end %>
+      </div>
     <% end %>
     <hr />
     <%= f.fields_for :tags, Tag.new do |tag_form| %>

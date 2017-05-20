@@ -11,7 +11,7 @@
     <span>Tags</span>
     <%= nav_button_for('Tags') %>
   </div>
-  <div class='panel-body'>
+  <div class='tag-list panel-body'>
     <%= "You have no tags for this lesson." if @lesson.tags.empty? %>
     <%= render @lesson.tags unless @lesson.tags.empty?%>
   </div>
