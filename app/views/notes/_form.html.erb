@@ -1,8 +1,9 @@
 <div class='note-box'>
   <%= form_for note, url: url do |f| %>
-    <%= f.label :notes %> <%= f.submit "Save" %><br />
-    <%= f.text_area :content %><br />
     <%= f.hidden_field :student_id %>
     <%= f.hidden_field :lesson_id %>
+
+    <%= f.text_area :content %><br />
+    <%= f.submit "Save" %>
   <% end %>
 </div>
