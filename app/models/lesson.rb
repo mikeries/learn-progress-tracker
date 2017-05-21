@@ -17,8 +17,7 @@ class Lesson < CurriculumElement
         unless tag_attr.nil?
           tag_category = tag_attr[:category].strip.capitalize
           if !tag_category.blank?
-            tag = self.tags.find_or_initialize_by(category: tag_category)
-            add_tag_validation_errors(tag) if self.invalid?
+            self.tags.find_or_initialize_by(category: tag_category)
           end
         end
       end
@@ -30,9 +29,5 @@ class Lesson < CurriculumElement
 
   def previous_lesson_id
     student.lessons.where('id < ?', self.id).last
-  end
-
-  def add_tag_validation_errors(tag)
-    tag.errors.full_messages.each {|message| self.errors[:base] << message}
   end
 end

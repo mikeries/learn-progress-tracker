@@ -21,6 +21,8 @@ class LessonsController < ApplicationController
       redirect_to lesson_path @lesson
     else
       @note = @lesson.notes.find_by(student_id: current_student.id)
+      @lesson.errors.messages.delete(:tags)
+      @lesson.tags.last.delete
       flash.now[:error] = @lesson.errors.full_messages.join("<br>").html_safe
       render :edit
     end
