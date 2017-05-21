@@ -3,7 +3,7 @@ class Lesson < CurriculumElement
   belongs_to :unit
   has_many :notes
   has_many :lesson_tags, inverse_of: :lesson
-  has_many :tags, through: :lesson_tags
+  has_many :tags, through: :lesson_tags, autosave: true
   validates_associated :tags
 
   LEARN_ROOT = 'https://learn.co/tracks/'
@@ -17,10 +17,8 @@ class Lesson < CurriculumElement
         unless tag_attr.nil?
           tag_category = tag_attr[:category].strip.capitalize
           if !tag_category.blank?
-            tag = Tag.find_or_initialize_by(category: tag_category)
-            if tag.valid?
-              self.tags << tag unless LessonTag.exists?(tag_id: tag.id, lesson_id: self.id)
-            end
+            tag = self.tags.find_or_initialize_by(category: tag_category)
+            add_tag_validation_errors(tag) if self.invalid?
           end
         end
       end
@@ -34,4 +32,7 @@ class Lesson < CurriculumElement
     student.lessons.where('id < ?', self.id).last
   end
 
+  def add_tag_validation_errors(tag)
+    tag.errors.full_messages.each {|message| self.errors[:base] << message}
+  end
 end
