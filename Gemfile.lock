@@ -133,6 +133,9 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (4.0.0)
       omniauth-oauth2 (~> 1.2)
+    omniauth-github (1.2.3)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
@@ -260,6 +263,7 @@ DEPENDENCIES
   launchy
   listen (>= 3.0.5, < 3.2)
   omniauth-facebook
+  omniauth-github
   puma (~> 3.7)
   rack_session_access
   rails (~> 5.1.0)
