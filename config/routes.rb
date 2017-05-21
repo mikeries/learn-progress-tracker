@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/dashboard' => 'sessions#dashboard'
   get '/search' => 'search#search'
+  get '/students' => 'sessions#welcome'
 
   resources :lessons, only: [:index, :show, :update, :edit] do
     resources :notes, only: [:index, :show, :edit, :new, :create, :update]
