@@ -6,5 +6,6 @@
     <%= f.text_area :content %><br />
     <%= f.button "Save", class:['btn','btn-default'] %>
 
+    <%= nav_button_for 'Back', lesson_path(note.lesson) %>
   <% end %>
 </div>
