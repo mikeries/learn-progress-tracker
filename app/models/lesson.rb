@@ -2,8 +2,9 @@ class Lesson < CurriculumElement
   belongs_to :student
   belongs_to :unit
   has_many :notes
-  has_many :lesson_tags
+  has_many :lesson_tags, inverse_of: :lesson
   has_many :tags, through: :lesson_tags
+  validates_associated :tags
 
   LEARN_ROOT = 'https://learn.co/tracks/'
 
@@ -14,10 +15,12 @@ class Lesson < CurriculumElement
   def tags_attributes=(tags_attributes)
     tags_attributes.each do |k, tag_attr|
         unless tag_attr.nil?
-          tag_category = tag_attr[:category]
+          tag_category = tag_attr[:category].strip.capitalize
           if !tag_category.blank?
-            tag = Tag.find_or_create_by(category: tag_category)
-            self.tags << tag unless LessonTag.exists?(tag_id: tag.id, lesson_id: self.id)
+            tag = Tag.find_or_initialize_by(category: tag_category)
+            if tag.valid?
+              self.tags << tag unless LessonTag.exists?(tag_id: tag.id, lesson_id: self.id)
+            end
           end
         end
       end

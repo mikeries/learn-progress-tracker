@@ -29,4 +29,5 @@ class LessonsController < ApplicationController
   def lesson_params
     params.require(:lesson).permit(:tag_ids => [], tags_attributes: [:category])
   end
+
 end
