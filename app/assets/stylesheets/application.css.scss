@@ -51,3 +51,10 @@ body {
     columns: 5;
     text-align: right;
 }
+
+.field_with_errors > textarea,
+.field_with_errors > input {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}

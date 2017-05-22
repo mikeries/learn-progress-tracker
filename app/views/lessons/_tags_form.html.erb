@@ -19,7 +19,7 @@
 
     <hr />
 
-    <%= f.fields_for :tags, Tag.new do |tag_form| %>
+    <%= f.fields_for :tags, @tag do |tag_form| %>
       <%= tag_form.label :category, "New Tag:" %>
       <%= tag_form.text_field :category %>
     <% end %>

@@ -12,17 +12,17 @@ class LessonsController < ApplicationController
 
   def edit
     @lesson = current_track.lessons.find(params[:id])
-    @note = @lesson.notes.find_by(student_id: current_student.id)
+    @tag = Tag.new
   end
 
   def update
     @lesson = Lesson.find(params[:id])
+
     if @lesson.update(lesson_params)
       redirect_to lesson_path @lesson
     else
-      @note = @lesson.notes.find_by(student_id: current_student.id)
       @lesson.errors.messages.delete(:tags)
-      @lesson.tags.last.delete
+      @tag = @lesson.tags.last
       flash.now[:error] = @lesson.errors.full_messages.join("<br>").html_safe
       render :edit
     end
