@@ -8,4 +8,8 @@ class SessionsController < ApplicationController
     return redirect_to tracks_path if current_student.tracks.empty?
   end
 
+  def on_track
+    @track = Track.find_by(slug: params[:slug])
+  end
+
 end
