@@ -9,18 +9,19 @@ class Lesson < CurriculumElement
   LEARN_ROOT = 'https://learn.co/tracks/'
 
   def url
-    LEARN_ROOT + unit.topic.track.slug + '/' + unit.topic.slug + '/' + unit.slug + '/' + self.slug
+    LEARN_ROOT + unit.topic.track.slug + '/' + unit.topic.slug + 
+      '/' + unit.slug + '/' + self.slug
   end
 
   def tags_attributes=(tags_attributes)
     tags_attributes.each do |k, tag_attr|
-        unless tag_attr.nil?
-          tag_category = tag_attr[:category].strip.capitalize
-          if !tag_category.blank?
-            self.tags.find_or_initialize_by(category: tag_category)
-          end
+      unless tag_attr.nil?
+        tag_category = tag_attr[:category].strip.capitalize
+        if !tag_category.blank?
+          self.tags.find_or_initialize_by(category: tag_category)
         end
       end
+    end
   end
 
   def next_lesson_id
