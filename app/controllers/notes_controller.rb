@@ -12,14 +12,8 @@ class NotesController < ApplicationController
     end
   end
 
-  def edit
-    @note = current_student.notes.find(params[:id])
-  end
-
   def new
     @note = current_student.notes.build
-    @note.student = current_student
-
     @note.lesson = Lesson.find(params[:lesson_id])
   end
 
@@ -31,6 +25,10 @@ class NotesController < ApplicationController
       flash.now[:error] = @note.errors.full_messages.join("<br>").html_safe
       render :new
     end
+  end
+  
+  def edit
+    @note = current_student.notes.find(params[:id])
   end
 
   def update
