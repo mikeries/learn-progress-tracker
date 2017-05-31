@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/students/on_track/:slug' => 'sessions#on_track'
 
   resources :lessons, only: [:index, :show, :update, :edit] do
-    resources :notes, only: [:index, :show, :edit, :new, :create, :update]
+    resources :notes, only: [:show, :edit, :new, :create, :update]
   end
 
   resources :tracks, only: [:index, :create]

@@ -3,10 +3,10 @@ class NotesController < ApplicationController
 
   def show
     return redirect_to lessons_path if params[:lesson_id].nil?
+
     @lesson = Lesson.find(params[:lesson_id])
     if @lesson
-        return redirect_to new_lesson_note_path(@lesson) if params[:id].nil?
-        redirect_to edit_lesson_note_path(@lesson, params[:id])
+      redirect_to edit_lesson_note_path(@lesson, params[:id])
     else
       redirect_to lessons_path
     end
