@@ -13,7 +13,7 @@ class Topic < CurriculumElement
   end
 
   def completed_lessons
-    lessons.select(&complete).count
+    lessons.select{ |lesson| lesson.complete }.count
   end
 
 end
