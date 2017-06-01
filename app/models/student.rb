@@ -12,7 +12,7 @@ class Student < ApplicationRecord
   has_many :lesson_tags, through: :lessons
   has_many :tags, through: :lesson_tags
   belongs_to :current_track, class_name: 'Track', optional: true
-  scope :on_track, (->(track) { where(current_track: track) })
+  scope :on_track, (->(track) { select { |student| student.current_track.slug = track unless student.current_track.nil?} } )
 
   def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |student|

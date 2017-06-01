@@ -2,7 +2,7 @@
   <h2>No track was found by that name.</h2>
 <% else %>
   <h2>Students currently on track '<%= "#{@track.title}"%>'</h2>
-  <% Student.on_track(@track.id).each do |student| %>
+  <% Student.on_track(@track.slug).each do |student| %>
     <p>
       <%= "#{student.email}" %>
     </p>
