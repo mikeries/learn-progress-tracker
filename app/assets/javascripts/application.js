@@ -16,10 +16,3 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-
-$(document).ready(function () {
-  if (location.hash){
-    $(location.hash).collapse('show');
-    $(location.hash).parents('.panel-collapse').collapse('show');
-  }
-});
