@@ -1,5 +1,8 @@
 'use strict';
 
+var curriculum;
+var lesson;
+
 $(function() {
     console.log('DOM is ready to go!');
     loadCurriculum();
@@ -11,7 +14,7 @@ function errorMessage(message) {
 
 function loadLesson(lesson_id) {
     $.get(`/lessons/${lesson_id}.json`, data => {
-        return lesson = new Lesson(data);
+        lesson = new Lesson(data);
     }).fail(function(error) {
         errorMessage(error);
     });
@@ -19,8 +22,7 @@ function loadLesson(lesson_id) {
 
 function loadCurriculum() {
     $.get(`/lessons.json`, data => {
-        var curriculum = new Track(data);
-        debugger;
+        curriculum = new Track(data);
     }).fail(function(error) {
         errorMessage(error);
     });

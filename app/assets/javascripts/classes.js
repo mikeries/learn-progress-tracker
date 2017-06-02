@@ -1,9 +1,11 @@
 function CurriculumElement() {}
 
-function Track(attributes) {
+function Track(topic_array) {
     this.topics = []
-    for (var key in attributes) {
-        this.topics.push(new Topic(attributes[key]));
+    for (var key in topic_array) {
+        var topic = new Topic(topic_array[key])
+        topic.track = this;
+        this.topics.push(topic);
     }
 }
 
@@ -14,7 +16,12 @@ function Topic(attributes) {
     this.units = []
     for (var key in attributes) {
         if (key == 'units') {
-            this.units.push(new Unit(attributes[key]));
+            var unit_array = attributes[key];
+            for (var index in unit_array) {
+                var unit = new Unit(unit_array[index])
+                unit.topic = this;
+                this.units.push(unit);
+            }
         } else {
             this[key] = attributes[key];
         }
@@ -28,7 +35,12 @@ function Unit(attributes) {
     this.lessons = [];
     for (var key in attributes) {
         if (key == 'lessons') {
-            this.lessons.push(new Lesson(attributes[key]));
+            var lesson_array = attributes[key];
+            for (var index in lesson_array) {
+                var lesson = new Lesson(lesson_array[index])
+                lesson.unit = this;
+                this.lessons.push(lesson);
+            }
         } else {
             this[key] = attributes[key];
         }
