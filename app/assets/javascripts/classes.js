@@ -1,3 +1,7 @@
+// TODO: this could be DRY'd up significantly by representing the curriculum with nested
+// CurriculumElements with parent and children CurriculumElements instead of using
+// inheritance.
+
 function CurriculumElement() {}
 
 function Track(topic_array) {
