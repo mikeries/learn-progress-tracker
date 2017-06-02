@@ -7,7 +7,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = current_track.lessons.find(params[:id])
-    @note = @lesson.notes.find_by(student_id: current_student.id)
+    @note = @lesson.notes.first
   end
 
   def edit

@@ -5,3 +5,4 @@
 
 <h3>Current track: <%= current_track.title %></h3>
 <h5>You have completed <%= "#{current_track.completed_lessons} of #{current_track.lessons.count}" %> lessons.</h5>
+<p>Click on the 'Lessons' menu item to visit your <%= link_to 'lessons', lessons_path %>.</p>

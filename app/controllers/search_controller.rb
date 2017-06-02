@@ -2,8 +2,7 @@ class SearchController < ApplicationController
   before_action :authenticate_student!
 
   def search
-    @search_term = params[:search]
-    text = '%' + @search_term + '%'
+    text = '%' + params[:search] + '%'
 
     @lessons = []
     tags = current_student.tags.where("category like ? collate nocase", text)
