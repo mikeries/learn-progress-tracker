@@ -25,10 +25,10 @@ class Lesson < CurriculumElement
   end
 
   def next_lesson_id
-    student.lessons.where('id > ?', self.id).first
+    student.lessons.where('id > ?', self.id).first.id
   end
 
   def previous_lesson_id
-    student.lessons.where('id < ?', self.id).last
+    student.lessons.where('id < ?', self.id).last.id
   end
 end
