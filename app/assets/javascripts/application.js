@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-sprockets
-//= require_tree .
+//= require handlebars.min
 //= learn-companion
+//= require_tree .
