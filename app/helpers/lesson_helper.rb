@@ -44,15 +44,17 @@ module LessonHelper
       path = lessons_path
     when 'Next'
       path = lesson_path(@lesson.next_lesson_id) unless @lesson.next_lesson_id.nil?
+      id = 'next-button'
     when 'Previous'
       path = lesson_path(@lesson.previous_lesson_id) unless @lesson.previous_lesson_id.nil?
+      id = 'previous-button'
     when 'Tags'
       path = edit_lesson_path(@lesson)
     when 'Notes'
       path = @note ? edit_lesson_note_path(@lesson, @note) : new_lesson_note_path(@lesson)
     end
 
-    link_to "<button type='button' class='btn btn-default'>#{button_type}</button>".html_safe, path
+    link_to "<button type='button' class='btn btn-default' id='#{id}'>#{button_type}</button>".html_safe, path
   end
 
 end

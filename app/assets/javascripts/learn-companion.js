@@ -5,7 +5,11 @@ var lesson;
 
 $(function() {
     console.log('DOM is ready to go!');
-    loadCurriculum();
+    $('#next-button').parent().on('click', function(e) {
+        e.preventDefault();
+        // load next page
+        console.log('next');
+    })
 })
 
 function errorMessage(message) {
