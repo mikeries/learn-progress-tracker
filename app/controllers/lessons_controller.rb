@@ -3,6 +3,10 @@ class LessonsController < ApplicationController
 
   def index
     @topics = current_track.topics.all
+    respond_to do |format| 
+      format.html { render :index }
+      format.json { render json: @topics }
+    end
   end
 
   def show
