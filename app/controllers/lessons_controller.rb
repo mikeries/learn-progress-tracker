@@ -8,6 +8,11 @@ class LessonsController < ApplicationController
   def show
     @lesson = current_track.lessons.find(params[:id])
     @note = @lesson.notes.first
+    respond_to do |format| 
+      format.html { render :show }
+      format.json { render json: @lesson.as_json(only: [:id, :complete, :content_type, :slug, :title],
+              include: [:notes, :tags]) }
+    end
   end
 
   def edit
