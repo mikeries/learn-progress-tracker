@@ -28,36 +28,35 @@
     <div class="btn-group" role="group">
 
       <a href="/lessons"><button type="button" class="btn btn-default">Index</button></a>
-      <a href="/lessons/4688"><button type="button" class="btn btn-default">Previous</button></a>
-      <a href="/lessons/4691"><button type="button" class="btn btn-default">Next</button></a>
+      <a href="/lessons/{{id}}/previous"><button type="button" class="btn btn-default">Previous</button></a>
+      <a href="/lessons/{{id}}/next"><button type="button" class="btn btn-default">Next</button></a>
 
     </div>
   </div>
 
   <h3>
-    <i class="fa fa-check-circle-o"></i>
-    <i class="fa fa-book"></i>
-    <a target="_blank" href="https://learn.co/tracks/full-stack-web-dev-with-react/object-oriented-ruby/intro-to-object-orientation/oo-ruby-video-object-orientation-overview">OO Ruby Video: Object Orientation Overview</a>
+    <i class="fa {{statusIconName}}"></i>
+    <i class="fa {{typeIconName}}"></i>
+    <a target="_blank" href="{{url}}"</a>
   </h3>
 
   <div class="tags panel panel-default">
     <div class="panel-heading">
       <span>Tags</span>
-      <a href="/lessons/4689/edit"><button type="button" class="btn btn-default">Tags</button></a>
+      <a href="/lessons/{{id}}/edit"><button type="button" class="btn btn-default">Tags</button></a>
     </div>
     <div class="tag-list panel-body">
-      You have no tags for this lesson.
-      
+      {{tagList}}
     </div>
   </div>
 
   <div class="notes panel panel-default">
     <div class="panel-heading">
       <span>Notes</span>
-      <a href="/lessons/4689/notes/new"><button type="button" class="btn btn-default">Notes</button></a>
+      <a href="/lessons/{{id}}/notes/new"><button type="button" class="btn btn-default">Notes</button></a>
     </div>
     <div class="panel-body">
-      You have no notes for this lesson.
+      {{noteContent}}
     </div>
   </div>
 </script>
