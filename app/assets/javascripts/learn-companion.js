@@ -19,7 +19,8 @@ function loadLesson(lesson_id) {
 
 function loadCurriculum() {
     $.get(`/lessons.json`, data => {
-        console.log(data)
+        var curriculum = new Track(data);
+        debugger;
     }).fail(function(error) {
         errorMessage(error);
     });

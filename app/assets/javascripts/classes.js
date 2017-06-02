@@ -1,16 +1,39 @@
 function CurriculumElement() {}
 
-function Track() {}
+function Track(attributes) {
+    this.topics = []
+    for (var key in attributes) {
+        this.topics.push(new Topic(attributes[key]));
+    }
+}
 
 Track.prototype = Object.create(CurriculumElement.prototype);
 Track.prototype.constructor = CurriculumElement;
 
-function Topic() {}
+function Topic(attributes) {
+    this.units = []
+    for (var key in attributes) {
+        if (key == 'units') {
+            this.units.push(new Unit(attributes[key]));
+        } else {
+            this[key] = attributes[key];
+        }
+    }
+}
 
 Topic.prototype = Object.create(Track.prototype);
 Topic.prototype.constructor = Track;
 
-function Unit() {}
+function Unit(attributes) {
+    this.lessons = [];
+    for (var key in attributes) {
+        if (key == 'lessons') {
+            this.lessons.push(new Lesson(attributes[key]));
+        } else {
+            this[key] = attributes[key];
+        }
+    }
+}
 
 Unit.prototype = Object.create(Topic.prototype);
 Unit.prototype.constructor = Topic;
