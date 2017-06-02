@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-sprockets
-//= learn-companion
 //= require_tree .
+//= learn-companion
