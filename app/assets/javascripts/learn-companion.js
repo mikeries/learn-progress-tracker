@@ -9,9 +9,9 @@ function errorMessage(message) {
 }
 
 function loadLesson(lesson_id) {
-    $.get(`/lessons/${lesson_id}.json`, function(response) {
+    $.get(`/lessons/${lesson_id}.json`, data => {
         var lesson = new Lesson();
-        $.extend(lesson, response);
+        $.extend(lesson, data);
         return lesson;
     }).fail(function(error) {
         errorMessage(error);
