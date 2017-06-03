@@ -18,11 +18,18 @@ $(function() {
                 method: 'GET'
             })
             .success(function(data) {
-                console.log(data);
+                lesson = new Lesson(data);
+                var source = $('#lesson-template').html();
+                var template = Handlebars.compile(source);
+                var html = template(lesson);
+                $('#lesson-content').html(html);
             })
             .error(function(response) {
                 errorMessage("Oops" + response);
-            })
+            });
+
+
+
     })
 })
 

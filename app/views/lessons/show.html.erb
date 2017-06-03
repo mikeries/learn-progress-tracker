@@ -1,24 +1,25 @@
-<%= render partial: 'lesson_header', locals: {lesson: @lesson} %>
+<div id='lesson-content'>
+  <%= render partial: 'lesson_header', locals: {lesson: @lesson} %>
+  <div class='tags panel panel-default'>
+    <div class="panel-heading">
+      <span>Tags</span>
+      <%= nav_button_for('Tags') %>
+    </div>
+    <div class='tag-list panel-body'>
+      <%= "You have no tags for this lesson." if @lesson.tags.empty? %>
+      <%= render @lesson.tags.order(:category).distinct unless @lesson.tags.empty?%>
+    </div>
+  </div>
 
-<div class='tags panel panel-default'>
-  <div class="panel-heading">
-    <span>Tags</span>
-    <%= nav_button_for('Tags') %>
-  </div>
-  <div class='tag-list panel-body'>
-    <%= "You have no tags for this lesson." if @lesson.tags.empty? %>
-    <%= render @lesson.tags.order(:category).distinct unless @lesson.tags.empty?%>
-  </div>
-</div>
-
-<div class='notes panel panel-default'>
-  <div class='panel-heading'>
-    <span>Notes</span>
-    <%= nav_button_for('Notes') %>
-  </div>
-  <div class='panel-body'>
-    <%= "You have no notes for this lesson." if @note.nil? %>
-    <%= @note.content unless @note.nil? %>
+  <div class='notes panel panel-default'>
+    <div class='panel-heading'>
+      <span>Notes</span>
+      <%= nav_button_for('Notes') %>
+    </div>
+    <div class='panel-body'>
+      <%= "You have no notes for this lesson." if @note.nil? %>
+      <%= @note.content unless @note.nil? %>
+    </div>
   </div>
 </div>
 
@@ -37,8 +38,9 @@
   <h3>
     <i class="fa {{statusIconName}}"></i>
     <i class="fa {{typeIconName}}"></i>
-    <a target="_blank" href="{{url}}"</a>
+    <a target="_blank" href="{{url}}">{{title}}</a>
   </h3>
+</script>
 
   <%#<div class="tags panel panel-default">
     <div class="panel-heading">
@@ -59,4 +61,3 @@
       {{noteContent}}
     </div>
   </div>%>
-</script>
