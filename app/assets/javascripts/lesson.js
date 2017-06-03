@@ -16,7 +16,7 @@ Lesson.prototype.viewHtml = function() {
 }
 
 Lesson.addListeners = function() {
-    Lesson.nextButtonListener()
+    Lesson.pageButtonListener()
 }
 
 Lesson.displayLesson = function(data) {
@@ -26,8 +26,8 @@ Lesson.displayLesson = function(data) {
     Lesson.addListeners();
 }
 
-Lesson.nextButtonListener = function() {
-    $('#next-button').parent().on('click', function(e) {
+Lesson.pageButtonListener = function() {
+    $('.page-button').parent().on('click', function(e) {
         e.preventDefault();
 
         var $link = $(this);
