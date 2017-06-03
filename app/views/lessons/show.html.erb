@@ -24,13 +24,12 @@
 </div>
 
 <script id="lesson-template" type="text/x-handlebars-template">
-
   <div class="btn-toolbar">
     <div class="btn-group" role="group">
 
       <a href="/lessons"><button type="button" class="btn btn-default">Index</button></a>
-      <a href="/lessons/{{previous_lesson_id}}"><button type="button" class="btn btn-default">Previous</button></a>
-      <a href="/lessons/{{next_lesson_id}}"><button type="button" class="btn btn-default">Next</button></a>
+      <a href="/lessons/{{previous_lesson_id}}"><button type="button" class="btn btn-default" id='back-button'>Previous</button></a>
+      <a href="/lessons/{{next_lesson_id}}"><button type="button" class="btn btn-default" id='next-button'>Next</button></a>
 
     </div>
   </div>
