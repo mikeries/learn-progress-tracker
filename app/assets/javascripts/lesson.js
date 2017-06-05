@@ -2,6 +2,13 @@ function Lesson(attributes) {
     for (var key in attributes) {
         this[key] = attributes[key];
     }
+
+    this.typeIconName = (this.content_type == 'Lab' ?
+        'fa-flask' :
+        'fa-book')
+    this.statusIconName = (this.complete ?
+        'fa-check-circle-o' :
+        'fa-circle-o')
 }
 
 $(function() {

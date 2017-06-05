@@ -50,8 +50,10 @@ module LessonHelper
       klass = 'page-button'
     when 'Tags'
       path = edit_lesson_path(@lesson)
+      klass = 'tags-button'
     when 'Notes'
       path = @note ? edit_lesson_note_path(@lesson, @note) : new_lesson_note_path(@lesson)
+      klass = 'notes-button'
     end
 
     link_to "<button type='button' class='btn btn-default #{klass}'>#{button_type}</button>".html_safe, path
