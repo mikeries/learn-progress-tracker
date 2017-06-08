@@ -10,9 +10,12 @@ function Lesson(attributes) {
         'fa-check-circle-o' :
         'fa-circle-o')
 
-    this.sortedTags = this.tags.sort(function(a, b) {
+}
+
+Lesson.prototype.sortedTags = function() {
+    return this.tags.sort(function(a, b) {
         return a.category > b.category ? 1 : 0;
-    });
+    })
 }
 
 $(function() {
