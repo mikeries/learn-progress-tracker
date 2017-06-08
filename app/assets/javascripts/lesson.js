@@ -9,6 +9,10 @@ function Lesson(attributes) {
     this.statusIconName = (this.complete ?
         'fa-check-circle-o' :
         'fa-circle-o')
+
+    this.sortedTags = this.tags.sort(function(a, b) {
+        return a.category > b.category ? 1 : 0;
+    });
 }
 
 $(function() {
@@ -17,6 +21,9 @@ $(function() {
 
     Lesson.tagsPartialSrc = $('#lesson-tags-partial').html();
     Handlebars.registerPartial('tagsPartial', Lesson.tagsPartialSrc);
+
+    Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
+    Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
 
     Lesson.addListeners();
 })
