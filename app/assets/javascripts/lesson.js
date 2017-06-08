@@ -15,6 +15,9 @@ $(function() {
     Lesson.templateSrc = $('#lesson-template').html();
     Lesson.template = Handlebars.compile(Lesson.templateSrc);
 
+    Lesson.tagsPartialSrc = $('#lesson-tags-partial').html();
+    Handlebars.registerPartial('tagsPartial', Lesson.tagsPartialSrc);
+
     Lesson.addListeners();
 })
 
@@ -25,9 +28,9 @@ Lesson.prototype.viewHtml = function() {
 Lesson.addListeners = function() {
     Lesson.pageButtonListener()
 }
-
+var lesson; //make global to facilitate debugging, for now.
 Lesson.displayLesson = function(data) {
-    var lesson = new Lesson(data);
+    lesson = new Lesson(data);
     var html = lesson.viewHtml();
     $('#lesson-content').html(html);
     Lesson.addListeners();

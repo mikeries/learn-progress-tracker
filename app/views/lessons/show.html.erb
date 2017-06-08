@@ -37,6 +37,7 @@
     <i class="fa {{typeIconName}}"></i>
     <a target="_blank" href="{{url}}">{{title}}</a>
   </h3>
+  {{> tagsPartial }}
 </script>
 
 <script id="lesson-tags-partial" type="text/x-handlebars-template">
@@ -46,7 +47,13 @@
       <a href="/lessons/{{id}}/edit"><button type="button" class="btn btn-default">Tags</button></a>
     </div>
     <div class="tag-list panel-body">
-      {{tagList}}
+      {{#if tags }}
+        {{#each tags}}
+          <li>{{category}}</li>
+        {{/each}}
+      {{ else }}
+        <p>You have no tags for this lesson.</p>
+      {{/if}}
     </div>
   </div>
 </script>
