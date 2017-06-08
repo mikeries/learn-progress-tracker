@@ -19,6 +19,7 @@ Lesson.prototype.sortedTags = function() {
 }
 
 Lesson.initializeHandlebars = function initializeHandlebars() {
+    console.log('initialize handlebars')
     Lesson.templateSrc = $('#lesson-template').html();
     Lesson.template = Handlebars.compile(Lesson.templateSrc);
 
@@ -27,11 +28,22 @@ Lesson.initializeHandlebars = function initializeHandlebars() {
 
     Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
     Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
+    console.log('register helper')
+    Handlebars.registerHelper('previous_lesson_link', function() {
+        if (this.previous_lesson_id) {
+            return new Handlebars.SafeString("/lessons/" +
+                this.previous_lesson_id);
+        } else {
+            return '/lessons';
+        }
+    });
 }
 
 $(function() {
-    if ($('.body.lessons.show').count > 0) {
-        Lesson.initializeHandlebars
+    console.log('initialize lesson')
+    if ($('body').hasClass('lessons show')) {
+        console.log('inside page check')
+        Lesson.initializeHandlebars();
         Lesson.addListeners();
     }
 })
@@ -43,7 +55,7 @@ Lesson.prototype.viewHtml = function() {
 Lesson.addListeners = function() {
     Lesson.pageButtonListener()
 }
-var lesson; //make global to facilitate debugging, for now.
+
 Lesson.displayLesson = function(data) {
     lesson = new Lesson(data);
     var html = lesson.viewHtml();
@@ -55,9 +67,12 @@ Lesson.displayLesson = function(data) {
 Lesson.pageButtonListener = function() {
     $('.page-button').parent().on('click', function(e) {
         e.preventDefault();
-
         var $link = $(this);
         var url = $link.attr('href');
+
+        if (url == '/lessons') {
+            return window.location.href = url;
+        }
 
         $.ajax({
                 url: url,
@@ -66,7 +81,7 @@ Lesson.pageButtonListener = function() {
             })
             .success(Lesson.displayLesson)
             .error(function(response) {
-                errorMessage("Oops" + response);
+                errorMessage("Oops" + response.message);
             });
 
     })
