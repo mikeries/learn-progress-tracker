@@ -26,11 +26,9 @@
 <script id="lesson-template" type="text/x-handlebars-template">
   <div class="btn-toolbar">
     <div class="btn-group" role="group">
-
       <a href="/lessons"><button type="button" class="btn btn-default">Index</button></a>
       <a href="/lessons/{{previous_lesson_id}}"><button type="button" class="btn btn-default page-button">Previous</button></a>
       <a href="/lessons/{{next_lesson_id}}"><button type="button" class="btn btn-default page-button">Next</button></a>
-
     </div>
   </div>
 
@@ -41,7 +39,8 @@
   </h3>
 </script>
 
-  <%#<div class="tags panel panel-default">
+<script id="lesson-tags-partial" type="text/x-handlebars-template">
+  <div class="tags panel panel-default">
     <div class="panel-heading">
       <span>Tags</span>
       <a href="/lessons/{{id}}/edit"><button type="button" class="btn btn-default">Tags</button></a>
@@ -49,7 +48,8 @@
     <div class="tag-list panel-body">
       {{tagList}}
     </div>
-  </div>%>
+  </div>
+</script>
 
   <%#<div class="notes panel panel-default">
     <div class="panel-heading">

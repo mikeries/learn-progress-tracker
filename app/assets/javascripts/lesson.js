@@ -2,7 +2,7 @@ function Lesson(attributes) {
     for (var key in attributes) {
         this[key] = attributes[key];
     }
-
+    // TODO: move these into handlebars helper or partial
     this.typeIconName = (this.content_type == 'Lab' ?
         'fa-flask' :
         'fa-book')
