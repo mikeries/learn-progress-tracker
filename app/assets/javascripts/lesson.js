@@ -43,7 +43,7 @@ Lesson.displayLesson = function(data) {
     lesson = new Lesson(data);
     var html = lesson.viewHtml();
     $('#lesson-content').html(html);
-    window.history.pushState(null, null, `/lessons/${lesson.id}`);
+    window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
     Lesson.addListeners();
 }
 
