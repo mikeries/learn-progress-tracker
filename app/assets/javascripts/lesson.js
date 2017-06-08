@@ -18,7 +18,7 @@ Lesson.prototype.sortedTags = function() {
     })
 }
 
-$(function() {
+Lesson.initializeHandlebars = function initializeHandlebars() {
     Lesson.templateSrc = $('#lesson-template').html();
     Lesson.template = Handlebars.compile(Lesson.templateSrc);
 
@@ -27,8 +27,13 @@ $(function() {
 
     Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
     Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
+}
 
-    Lesson.addListeners();
+$(function() {
+    if ($('.body.lessons.show').count > 0) {
+        Lesson.initializeHandlebars
+        Lesson.addListeners();
+    }
 })
 
 Lesson.prototype.viewHtml = function() {
