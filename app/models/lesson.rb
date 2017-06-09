@@ -25,7 +25,9 @@ class Lesson < CurriculumElement
   end
 
   def next_lesson_id
-    student.lessons.where('id > ?', self.id).first.id
+    next_lesson = student.lessons.where('id > ?', self.id).first
+    return next_lesson.id if next_lesson
+    nil
   end
 
   def previous_lesson_id

@@ -19,7 +19,7 @@ Lesson.prototype.sortedTags = function() {
 }
 
 Lesson.initializeHandlebars = function initializeHandlebars() {
-    console.log('initialize handlebars')
+
     Lesson.templateSrc = $('#lesson-template').html();
     Lesson.template = Handlebars.compile(Lesson.templateSrc);
 
@@ -28,11 +28,20 @@ Lesson.initializeHandlebars = function initializeHandlebars() {
 
     Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
     Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
-    console.log('register helper')
+
     Handlebars.registerHelper('previous_lesson_link', function() {
         if (this.previous_lesson_id) {
             return new Handlebars.SafeString("/lessons/" +
                 this.previous_lesson_id);
+        } else {
+            return '/lessons';
+        }
+    });
+
+    Handlebars.registerHelper('next_lesson_link', function() {
+        if (this.next_lesson_id) {
+            return new Handlebars.SafeString("/lessons/" +
+                this.next_lesson_id);
         } else {
             return '/lessons';
         }
