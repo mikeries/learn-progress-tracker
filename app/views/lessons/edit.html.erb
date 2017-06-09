@@ -4,3 +4,55 @@
   <div class='panel-heading'>Available Tags</div>
   <%= render partial: 'tags_form', locals: {lesson: @lesson} %>
 </div>
+
+<script id='lesson-edit-template' type='text/x-handlebars-template'>
+  <div class='btn-toolbar'>
+    <div class="btn-group" role="group">
+      <a href="/lessons"><button type='button' class='btn btn-default '>Index</button></a>
+      <a href="/lessons/188"><button type='button' class='btn btn-default page-button'>Previous</button></a>
+      <a href="/lessons/190"><button type='button' class='btn btn-default page-button'>Next</button></a>
+    </div>
+  </div>
+
+  <h3>
+    <i class="fa fa-check-circle-o"></i>
+    <i class="fa fa-book"></i>
+    <a target="_blank" href="https://learn.co/tracks/full-stack-web-dev-with-react/procedural-ruby/booleans/boolean-operators">Boolean Operators</a>
+  </h3>
+
+  <div class='tags panel panel-default'>
+    <div class='panel-heading'>Available Tags</div>
+    <div class='panel-body'>
+      <form class="edit_lesson" id="edit_lesson_189" action="/lessons/189" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden"
+          name="authenticity_token" value="fU9YHKVD4+bqd7rNl4dxzmYPNgtLpWUkFSpEYPLfpIItD3YKQ0d12RpnmxrBKPmH0QHWfJm2aV6jfP+AaPAN8g=="
+        />
+
+        <div class='tag-list'>
+          <input type="hidden" name="lesson[tag_ids][]" value="" />
+
+          <span class='tag-label'>
+            Activerecord
+          </span>
+          <span class='check_box'>
+            <input type="checkbox" value="1" checked="checked" name="lesson[tag_ids][]" id="lesson_tag_ids_1" />
+          </span>
+          <br />
+          
+          <span class='tag-label'>
+            Authentication
+          </span>
+          <span class='check_box'>
+            <input type="checkbox" value="6" checked="checked" name="lesson[tag_ids][]" id="lesson_tag_ids_6" />
+          </span>
+          <br />
+        </div>
+        <hr />
+        <label for="lesson_tags_attributes_0_category">New Tag:</label>
+        <input type="text" name="lesson[tags_attributes][0][category]" id="lesson_tags_attributes_0_category" />
+        <hr />
+        <button name="button" type="submit" class="btn btn-default">Update Tags</button>
+        <a href="/lessons/189"><button type='button' class='btn btn-default '>Back</button></a>
+      </form>
+    </div>
+  </div>
+</script>

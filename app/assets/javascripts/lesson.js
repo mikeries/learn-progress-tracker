@@ -5,10 +5,12 @@ function Lesson(attributes) {
     // TODO: move these into handlebars helper or partial
     this.typeIconName = (this.content_type == 'Lab' ?
         'fa-flask' :
-        'fa-book')
+        'fa-book'
+    )
     this.statusIconName = (this.complete ?
         'fa-check-circle-o' :
-        'fa-circle-o')
+        'fa-circle-o'
+    )
 
 }
 
