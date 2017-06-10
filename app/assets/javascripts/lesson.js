@@ -2,15 +2,15 @@ function Lesson(attributes) {
     this.tags = []
     for (var key in attributes) {
         if(key=='tags') {
-        var tags_array = attributes[key];
-        for (var index in tags_array) {
-            var tag = new Tag(tags_array[index])
-            this.tags.push(tag);
-        }
+            var tags_array = attributes[key];
+            for (var index in tags_array) {
+                this.tags.push(new Tag(tags_array[index]));
+            }
         } else {
-        this[key] = attributes[key];
+            this[key] = attributes[key];
         }
     }
+
     // TODO: move these into handlebars helper or partial
     this.typeIconName = (this.content_type == 'Lab' ?
         'fa-flask' :
@@ -23,8 +23,8 @@ function Lesson(attributes) {
 }
 
 Lesson.prototype.sortedTags = function() {
-    return this.tags.sort(function(a, b) {
-        return a.category > b.category ? 1 : 0;
+    return this.tags.sort((a, b) => {
+        a.category > b.category ? 1 : 0;
     })
 }
 
@@ -71,12 +71,12 @@ Lesson.prototype.viewHtml = function() {
     return Lesson.template(this);
 }
 
-Lesson.addListeners = function() {
+Lesson.addListeners = () => {
     Lesson.pageButtonListener()
 }
 
 var lesson;
-Lesson.displayLesson = function(data) {
+Lesson.displayLesson = (data) => {
     lesson = new Lesson(data);
     var html = lesson.viewHtml();
     $('#lesson-content').html(html);
@@ -100,7 +100,7 @@ Lesson.pageButtonListener = function() {
                 method: 'GET'
             })
             .success(Lesson.displayLesson)
-            .error(function(response) {
+            .error((response) => {
                 errorMessage("Oops" + response.message);
             });
 
