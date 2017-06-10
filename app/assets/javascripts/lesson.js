@@ -1,6 +1,15 @@
 function Lesson(attributes) {
+    this.tags = []
     for (var key in attributes) {
+        if(key=='tags') {
+        var tags_array = attributes[key];
+        for (var index in tags_array) {
+            var tag = new Tag(tags_array[index])
+            this.tags.push(tag);
+        }
+        } else {
         this[key] = attributes[key];
+        }
     }
     // TODO: move these into handlebars helper or partial
     this.typeIconName = (this.content_type == 'Lab' ?
@@ -11,7 +20,6 @@ function Lesson(attributes) {
         'fa-check-circle-o' :
         'fa-circle-o'
     )
-
 }
 
 Lesson.prototype.sortedTags = function() {
