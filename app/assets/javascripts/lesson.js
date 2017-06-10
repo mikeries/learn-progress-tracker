@@ -67,6 +67,7 @@ Lesson.addListeners = function() {
     Lesson.pageButtonListener()
 }
 
+var lesson;
 Lesson.displayLesson = function(data) {
     lesson = new Lesson(data);
     var html = lesson.viewHtml();

@@ -15,44 +15,41 @@
   </div>
 
   <h3>
-    <i class="fa fa-check-circle-o"></i>
-    <i class="fa fa-book"></i>
-    <a target="_blank" href="https://learn.co/tracks/full-stack-web-dev-with-react/procedural-ruby/booleans/boolean-operators">Boolean Operators</a>
+    <i class="fa {{statusIconName}}"></i>
+    <i class="fa {{typeIconName}}"></i>
+    <a target="_blank" href="{{url}}">{{title}}</a>
   </h3>
 
-  <div class='tags panel panel-default'>
-    <div class='panel-heading'>Available Tags</div>
-    <div class='panel-body'>
-      <form class="edit_lesson" id="edit_lesson_189" action="/lessons/189" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden"
-          name="authenticity_token" value="fU9YHKVD4+bqd7rNl4dxzmYPNgtLpWUkFSpEYPLfpIItD3YKQ0d12RpnmxrBKPmH0QHWfJm2aV6jfP+AaPAN8g=="
-        />
+  <script id="lesson-edit-partial" type="text/x-handlebars-template">
+    <div class='tags panel panel-default'>
+      <div class='panel-heading'>Available Tags</div>
+      <div class='panel-body'>
+        <form class="edit_lesson" id="edit_lesson_{{id}}" action="/lessons/{{id}}" accept-charset="UTF-8" method="post">
+          <input name="utf8" type="hidden" value="&#x2713;" />
+          <input type="hidden" name="_method" value="patch" />
 
-        <div class='tag-list'>
-          <input type="hidden" name="lesson[tag_ids][]" value="" />
+          <div class='tag-list'>
+            <input type="hidden" name="lesson[tag_ids][]" value="" />
+            {{#each sortedTags}}
+              <span class='tag-label'>
+                {{category}}
+              </span>
+              <span class='check_box'>
+                <input type="checkbox" value="{{value}}" {{ checked? }} name="lesson[tag_ids][]" id="lesson_tag_ids_{{id}}" />
+              </span>
+              <br />
+            {{/each}}
+          </div>
 
-          <span class='tag-label'>
-            Activerecord
-          </span>
-          <span class='check_box'>
-            <input type="checkbox" value="1" checked="checked" name="lesson[tag_ids][]" id="lesson_tag_ids_1" />
-          </span>
-          <br />
-          
-          <span class='tag-label'>
-            Authentication
-          </span>
-          <span class='check_box'>
-            <input type="checkbox" value="6" checked="checked" name="lesson[tag_ids][]" id="lesson_tag_ids_6" />
-          </span>
-          <br />
-        </div>
-        <hr />
-        <label for="lesson_tags_attributes_0_category">New Tag:</label>
-        <input type="text" name="lesson[tags_attributes][0][category]" id="lesson_tags_attributes_0_category" />
-        <hr />
-        <button name="button" type="submit" class="btn btn-default">Update Tags</button>
-        <a href="/lessons/189"><button type='button' class='btn btn-default '>Back</button></a>
-      </form>
+          <hr />
+          <label for="lesson_tags_attributes_0_category">New Tag:</label>
+          <input type="text" name="lesson[tags_attributes][0][category]" id="lesson_tags_attributes_0_category" />
+          <hr />
+
+          <button name="button" type="submit" class="btn btn-default">Update Tags</button>
+          <a href="/lessons/{{id}}"><button type='button' class='btn btn-default '>Back</button></a>
+        </form>
+      </div>
     </div>
-  </div>
+  </script>
 </script>
