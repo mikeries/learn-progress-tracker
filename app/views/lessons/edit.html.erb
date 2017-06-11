@@ -27,6 +27,7 @@
         <form class="edit_lesson" id="edit_lesson_{{id}}" action="/lessons/{{id}}" accept-charset="UTF-8" method="post">
           <input name="utf8" type="hidden" value="&#x2713;" />
           <input type="hidden" name="_method" value="patch" />
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
           <div class='tag-list'>
             <input type="hidden" name="lesson[tag_ids][]" value="" />
