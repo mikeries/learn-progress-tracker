@@ -71,11 +71,19 @@ Lesson.prototype.viewHtml = function() {
 }
 
 Lesson.addListeners = () => {
-    Lesson.pageButtonListener()
+    Lesson.pageButtonListener();
+    Lesson.tagsButtonListener();
 }
 
-var lesson;
 Lesson.displayLesson = (data) => {
+    lesson = new Lesson(data);
+    var html = lesson.viewHtml();
+    $('#lesson-content').html(html);
+    window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
+    Lesson.addListeners();
+}
+
+Lesson.editLesson = (data) => {
     lesson = new Lesson(data);
     var html = lesson.viewHtml();
     $('#lesson-content').html(html);
@@ -99,6 +107,25 @@ Lesson.pageButtonListener = function() {
                 method: 'GET'
             })
             .success(Lesson.displayLesson)
+            .error((response) => {
+                errorMessage(`Oops! Failed to load '${url}'.`);
+            });
+
+    })
+}
+
+Lesson.tagsButtonListener = function() {
+    $('.tags-button').parent().on('click', function(e) {
+        e.preventDefault();
+        var $link = $(this);
+        var url = $link.attr('href');
+
+        $.ajax({
+                url: url,
+                dataType: 'json',
+                method: 'GET'
+            })
+            .success(Lesson.editLesson)
             .error((response) => {
                 errorMessage(`Oops! Failed to load '${url}'.`);
             });
