@@ -61,7 +61,6 @@ Lesson.initializeHandlebars = function initializeHandlebars() {
 $(function() {
     console.log('initialize lesson')
     if ($('body').hasClass('lessons show')) {
-        console.log('inside page check')
         Lesson.initializeHandlebars();
         Lesson.addListeners();
     }
@@ -101,7 +100,7 @@ Lesson.pageButtonListener = function() {
             })
             .success(Lesson.displayLesson)
             .error((response) => {
-                errorMessage("Oops" + response.message);
+                errorMessage(`Oops! Failed to load '${url}'.`);
             });
 
     })
