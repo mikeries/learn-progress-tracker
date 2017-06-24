@@ -56,6 +56,12 @@ Lesson.initializeHandlebars = function initializeHandlebars() {
             return '/lessons';
         }
     });
+
+    Lesson.editTemplateSrc = $('#lesson-edit-template').html();
+    Lesson.editTemplate = Handlebars.compile(Lesson.editTemplateSrc);
+
+    Lesson.lessonEditPartialSrc = $('#lesson-edit-partial').html();
+    Handlebars.registerPartial('lessonEditPartial', Lesson.lessonEditPartialSrc);
 }
 
 $(function() {
@@ -68,6 +74,10 @@ $(function() {
 
 Lesson.prototype.viewHtml = function() {
     return Lesson.template(this);
+}
+
+Lesson.prototype.editHtml = function() {
+    return Lesson.editTemplate(this);
 }
 
 Lesson.addListeners = () => {
@@ -85,7 +95,7 @@ Lesson.displayLesson = (data) => {
 
 Lesson.editLesson = (data) => {
     lesson = new Lesson(data);
-    var html = lesson.viewHtml();
+    var html = lesson.editHtml();
     $('#lesson-content').html(html);
     window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
     Lesson.addListeners();
