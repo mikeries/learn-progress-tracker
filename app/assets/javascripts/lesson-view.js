@@ -9,6 +9,12 @@ console.log('initializing handlebars')
     Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
     Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
 
+    Lesson.editTemplateSrc = $('#lesson-edit-template').html();
+    Lesson.template = Handlebars.compile(Lesson.editTemplateSrc);
+
+    Lesson.lessonEditPartialSrc = $('#lesson-edit-partial').html();
+    Handlebars.registerPartial('lessonEditPartial', Lesson.lessonEditPartialSrc);
+
     Handlebars.registerHelper('previous_lesson_link', function() {
         if (this.previous_lesson_id) {
             return new Handlebars.SafeString("/lessons/" +
@@ -45,7 +51,6 @@ Lesson.displayLesson = (data) => {
     var html = lesson.viewHtml();
     $('#lesson-content').html(html);
     window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
-    Lesson.initializeHandlebars();
     Lesson.addListeners();
 }
 
@@ -76,7 +81,6 @@ Lesson.pageButtonListener = function() {
     })
 }
 
-
 Lesson.tagsButtonListener = function() {
     $('.tags-button').parent().on('click', function(e) {
         console.log('tags button clicked')
@@ -95,4 +99,16 @@ Lesson.tagsButtonListener = function() {
             });
 
     })
+}
+
+Lesson.editLesson = (data) => {
+    lesson = new Lesson(data);
+    var html = lesson.editHtml();
+    $('#lesson-edit-template').html(html);
+    window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
+    Lesson.addListeners();
+}
+
+Lesson.prototype.editHtml = function() {
+    return Lesson.template(this);
 }
