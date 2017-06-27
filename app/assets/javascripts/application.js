@@ -15,5 +15,6 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require handlebars.min
-//= learn-companion
+//= require lesson
+//= require learn-companion
 //= require_tree .
