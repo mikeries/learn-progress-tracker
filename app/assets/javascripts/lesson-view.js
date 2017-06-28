@@ -10,7 +10,7 @@ console.log('initializing handlebars')
     Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
 
     Lesson.editTemplateSrc = $('#lesson-edit-template').html();
-    Lesson.template = Handlebars.compile(Lesson.editTemplateSrc);
+    Lesson.editTemplate = Handlebars.compile(Lesson.editTemplateSrc);
 
     Lesson.lessonEditPartialSrc = $('#lesson-edit-partial').html();
     Handlebars.registerPartial('lessonEditPartial', Lesson.lessonEditPartialSrc);
@@ -35,10 +35,8 @@ console.log('initializing handlebars')
 }
 
 $(function() {
-    if ($('body').hasClass('lessons show')) {
-        Lesson.initializeHandlebars();
-        Lesson.addListeners();
-    }
+    Lesson.initializeHandlebars();
+    Lesson.addListeners();
 })
 
 Lesson.addListeners = () => {
@@ -104,11 +102,11 @@ Lesson.tagsButtonListener = function() {
 Lesson.editLesson = (data) => {
     lesson = new Lesson(data);
     var html = lesson.editHtml();
-    $('#lesson-edit-template').html(html);
+    $('#lesson-content').html(html);
     window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
     Lesson.addListeners();
 }
 
 Lesson.prototype.editHtml = function() {
-    return Lesson.template(this);
+    return Lesson.editTemplate(this);
 }
