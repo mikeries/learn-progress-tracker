@@ -46,6 +46,7 @@ Lesson.addListeners = () => {
 
 Lesson.displayLesson = (data) => {
     lesson = new Lesson(data);
+    debugger
     var html = lesson.viewHtml();
     $('#lesson-content').html(html);
     window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
