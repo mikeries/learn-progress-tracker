@@ -21,11 +21,6 @@ class LessonsController < ApplicationController
   def edit
     @lesson = current_track.lessons.find(params[:id])
     @tag = Tag.new
-
-    respond_to do |format| 
-      format.html { render :show }
-      format.json { render json: @lesson }
-    end
   end
 
   def update
