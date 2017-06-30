@@ -42,7 +42,7 @@
   <div id='notes-panel' class='notes panel panel-default'>
     <div class="panel-heading">
       <span>Notes</span>
-      <a href="/lessons/{{id}}/notes/new"><button type="button" class="btn btn-default notes-button">Edit</button></a>
+      <a href="#"><button type="button" class="btn btn-default notes-button">Edit</button></a>
     </div>
     <div class="panel-body">
       <div id='notes-show'>
@@ -55,15 +55,10 @@
         {{/if}}
       </div>
       <div id='notes-edit' style='display: none;'>
-        <form class="new_note" id="new_note" action="/lessons/189/notes" accept-charset="UTF-8" method="post">
-          <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jMo51vcYPJvRTYwt/OXqNI3IuQksRYRqqLiSKVBya15kGqhuqpUoKy2f297t3h2xioTgiw8DWNC91dnKAjx6MQ==" />
-          <input type="hidden" value="1" name="note[student_id]" id="note_student_id" />
-          <input type="hidden" value="189" name="note[lesson_id]" id="note_lesson_id" />
-
-          <textarea name="note[content]" id="note_content"></textarea><br />
-          <button name="button" type="submit" class="btn btn-default">Save</button>
-
-          <a href="/lessons/189"><button type='button' class='btn btn-default '>Back</button></a>
+        <form class="new_note" id="new_note" action="/lessons/{{id}}/notes" accept-charset="UTF-8" method="post">
+          <input type="hidden" value="{{student.id}}" name="note[student_id]" id="note_student_id" />
+          <input type="hidden" value="{{id}}" name="note[lesson_id]" id="note_lesson_id" />
+          <textarea name="note[content]" id="note_content">{{notes[0].content}}</textarea><br />
         </form>
       </div>
     </div>

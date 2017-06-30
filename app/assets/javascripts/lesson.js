@@ -90,10 +90,9 @@ Lesson.prototype.pageButtonListener = function() {
 
 Lesson.prototype.notesButtonListener = function() {
     $('.notes-button').parent().on('click', function(e) {
-        e.preventDefault();
-        var url = $(this).attr('href');
-
         console.log("notes button clicked");
+        $('#notes-show').css('display','none');
+        $('#notes-edit').css('display','block');
     })
 }
 
