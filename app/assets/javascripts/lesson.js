@@ -49,12 +49,8 @@ Lesson.initializeHandlebars = function initializeHandlebars() {
     Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
 }
 
-Lesson.prototype.viewHtml = function() {
-    return Lesson.template(this);
-}
-
 Lesson.prototype.displayLesson = function() {
-    $('#lesson-content').html(this.viewHtml());
+    $('#lesson-content').html(Lesson.template(this));
     window.history.pushState(null, null, `/lessons/${this.id}.html`);
     this.addListeners();
 }
