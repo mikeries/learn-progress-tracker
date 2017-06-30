@@ -54,6 +54,7 @@ module LessonHelper
     when 'Notes'
       path = @note ? edit_lesson_note_path(@lesson, @note) : new_lesson_note_path(@lesson)
       klass = 'notes-button'
+      button_type = 'Edit'
     end
 
     link_to "<button type='button' class='btn btn-default #{klass}'>#{button_type}</button>".html_safe, path

@@ -65,6 +65,7 @@ $(function() {
 
 Lesson.addListeners = () => {
     Lesson.pageButtonListener();
+    Lesson.notesButtonListener();
 }
 
 Lesson.displayLesson = (data) => {
@@ -99,5 +100,15 @@ Lesson.pageButtonListener = function() {
                 errorMessage(`Oops! Failed to load '${url}'.`);
             });
 
+    })
+}
+
+Lesson.notesButtonListener = function() {
+    $('.notes-button').parent().on('click', function(e) {
+        e.preventDefault();
+        var $link = $(this);
+        var url = $link.attr('href');
+
+        console.log('hijacked Notes button');
     })
 }
