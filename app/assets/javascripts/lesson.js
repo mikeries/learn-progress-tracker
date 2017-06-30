@@ -54,8 +54,7 @@ Lesson.prototype.viewHtml = function() {
 }
 
 Lesson.prototype.displayLesson = function() {
-    const html = this.viewHtml();
-    $('#lesson-content').html(html);
+    $('#lesson-content').html(this.viewHtml());
     window.history.pushState(null, null, `/lessons/${this.id}.html`);
     this.addListeners();
 }
@@ -82,8 +81,7 @@ Lesson.getLesson = function(url) {
 Lesson.prototype.pageButtonListener = function() {
     $('.page-button').parent().on('click', function(e) {
         e.preventDefault();
-        var $link = $(this);
-        var url = $link.attr('href');
+        var url = $(this).attr('href');
 
         if (url == '/lessons') {
             return window.location.href = url;
@@ -96,7 +94,6 @@ Lesson.prototype.pageButtonListener = function() {
 $(function() {
     if ($('body').hasClass("lessons show")) {
         Lesson.initializeHandlebars();
-        const url = $('#lesson-content').data().lessonUrl;
-        Lesson.getLesson(url);
+        Lesson.getLesson($('#lesson-content').data().lessonUrl);
     }
 })
