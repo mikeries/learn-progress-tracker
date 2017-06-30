@@ -64,6 +64,21 @@ Lesson.prototype.addListeners = function() {
     this.pageButtonListener();
 }
 
+Lesson.getLesson = function(url) {
+  $.ajax({
+          url: url,
+          dataType: 'json',
+          method: 'GET'
+      })
+      .success((data) => {
+          const lesson = new Lesson(data);
+          lesson.displayLesson();
+      })
+      .error((response) => {
+          errorMessage(`Oops! Failed to load '${url}'.`);
+      });
+}
+
 Lesson.prototype.pageButtonListener = function() {
     $('.page-button').parent().on('click', function(e) {
         e.preventDefault();
@@ -74,19 +89,7 @@ Lesson.prototype.pageButtonListener = function() {
             return window.location.href = url;
         }
 
-        $.ajax({
-                url: url,
-                dataType: 'json',
-                method: 'GET'
-            })
-            .success((data) => {
-                const lesson = new Lesson(data);
-                lesson.displayLesson();
-            })
-            .error((response) => {
-                errorMessage(`Oops! Failed to load '${url}'.`);
-            });
-
+        Lesson.getLesson(url);
     })
 }
 
@@ -94,18 +97,6 @@ $(function() {
     if ($('body').hasClass("lessons show")) {
         Lesson.initializeHandlebars();
         const url = $('#lesson-content').data().lessonUrl;
-
-        $.ajax({
-                url: url,
-                dataType: 'json',
-                method: 'GET'
-            })
-            .success((data) => {
-                const lesson = new Lesson(data);
-                lesson.displayLesson();
-            })
-            .error((response) => {
-                errorMessage(`Oops! Failed to load '${url}'.`);
-            });
+        Lesson.getLesson(url);
     }
 })
