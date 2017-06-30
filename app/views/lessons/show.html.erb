@@ -58,7 +58,7 @@
         <form class="new_note" id="new_note" action="/lessons/{{id}}/notes" accept-charset="UTF-8" method="post">
           <input type="hidden" value="{{student.id}}" name="note[student_id]" id="note_student_id" />
           <input type="hidden" value="{{id}}" name="note[lesson_id]" id="note_lesson_id" />
-          <textarea name="note[content]" id="note_content">{{notes[0].content}}</textarea><br />
+          <textarea name="note[content]" id="note_content"></textarea><br />
         </form>
       </div>
     </div>

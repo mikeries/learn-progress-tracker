@@ -89,9 +89,18 @@ Lesson.prototype.pageButtonListener = function() {
 }
 
 Lesson.prototype.notesButtonListener = function() {
+    const lesson = this;
     $('.notes-button').parent().on('click', function(e) {
-        console.log("notes button clicked");
         $('#notes-show').css('display','none');
+        console.log('click')
+        $form = $('#notes-edit form')
+        if (lesson.notes[0]) {
+          content = lesson.notes[0].content
+          $form.attr('method', 'patch')
+          $form.attr('action', `/lessons/${lesson.id}/notes/${lesson.notes[0].id}`)
+          $('#note_content').val(content)
+        }
+        $('.notes-button').text('Save');
         $('#notes-edit').css('display','block');
     })
 }
