@@ -19,6 +19,17 @@ function Lesson(attributes) {
         'fa-check-circle-o' :
         'fa-circle-o'
     )
+
+    this.previous_lesson_link = (this.previous_lesson_id ?
+      `/lessons/${this.previous_lesson_id}` :
+      '/lessons'
+    )
+
+    this.next_lesson_link = (this.next_lesson_id ?
+      `/lessons/${this.next_lesson_id}` :
+      '/lessons'
+    )
+
 }
 
 Lesson.prototype.sortedTags = function() {
@@ -27,17 +38,33 @@ Lesson.prototype.sortedTags = function() {
     })
 }
 
-Lesson.prototype.addListeners = () => {
-    this.pageButtonListener();
-    this.notesButtonListener();
+Lesson.initializeHandlebars = function initializeHandlebars() {
+    Lesson.templateSrc = $('#lesson-template').html();
+    Lesson.template = Handlebars.compile(Lesson.templateSrc);
+
+    Lesson.tagsPartialSrc = $('#lesson-tags-partial').html();
+    Handlebars.registerPartial('tagsPartial', Lesson.tagsPartialSrc);
+
+    Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
+    Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
 }
 
 Lesson.prototype.viewHtml = function() {
     return Lesson.template(this);
 }
 
+Lesson.prototype.displayLesson = function() {
+    const html = this.viewHtml();
+    $('#lesson-content').html(html);
+    window.history.pushState(null, null, `/lessons/${this.id}.html`);
+    this.addListeners();
+}
+
+Lesson.prototype.addListeners = function() {
+    this.pageButtonListener();
+}
+
 Lesson.prototype.pageButtonListener = function() {
-    let lesson = this;
     $('.page-button').parent().on('click', function(e) {
         e.preventDefault();
         var $link = $(this);
@@ -63,57 +90,22 @@ Lesson.prototype.pageButtonListener = function() {
     })
 }
 
-Lesson.prototype.notesButtonListener = function() {
-    let lesson = this;
-    $('.notes-button').parent().on('click', function(e) {
-        e.preventDefault();
-        var $link = $(this);
-        var url = $link.attr('href');
-
-        console.log('hijacked Notes button');
-        debugger
-        template = Handlebars.compile($('#lesson-notes-form').html());
-    })
-}
-
-Lesson.initializeHandlebars = function initializeHandlebars() {
-    Lesson.templateSrc = $('#lesson-template').html();
-    Lesson.template = Handlebars.compile(Lesson.templateSrc);
-
-    Lesson.tagsPartialSrc = $('#lesson-tags-partial').html();
-    Handlebars.registerPartial('tagsPartial', Lesson.tagsPartialSrc);
-
-    Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
-    Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
-
-    Handlebars.registerHelper('previous_lesson_link', function() {
-        if (this.previous_lesson_id) {
-            return new Handlebars.SafeString("/lessons/" +
-                this.previous_lesson_id);
-        } else {
-            return '/lessons';
-        }
-    });
-
-    Handlebars.registerHelper('next_lesson_link', function() {
-        if (this.next_lesson_id) {
-            return new Handlebars.SafeString("/lessons/" +
-                this.next_lesson_id);
-        } else {
-            return '/lessons';
-        }
-    });
-}
-
-Lesson.prototype.displayLesson = () => {
-    var html = lesson.viewHtml();
-    $('#lesson-content').html(html);
-    window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
-    lesson.addListeners();
-}
-
 $(function() {
     if ($('body').hasClass("lessons show")) {
         Lesson.initializeHandlebars();
+        const url = $('#lesson-content').data().lessonUrl;
+
+        $.ajax({
+                url: url,
+                dataType: 'json',
+                method: 'GET'
+            })
+            .success((data) => {
+                const lesson = new Lesson(data);
+                lesson.displayLesson();
+            })
+            .error((response) => {
+                errorMessage(`Oops! Failed to load '${url}'.`);
+            });
     }
 })

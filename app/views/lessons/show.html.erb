@@ -1,26 +1,5 @@
-<div id='lesson-content'>
-  <%= render partial: 'lesson_header', locals: {lesson: @lesson} %>
-  <div class='tags panel panel-default'>
-    <div class="panel-heading">
-      <span>Tags</span>
-      <%= nav_button_for('Tags') %>
-    </div>
-    <div class='tag-list panel-body'>
-      <%= "You have no tags for this lesson." if @lesson.tags.empty? %>
-      <%= render @lesson.tags.order(:category).distinct unless @lesson.tags.empty?%>
-    </div>
-  </div>
+<div id='lesson-content' data-lesson-url=<%= lesson_path @lesson %>>
 
-  <div id='notes-panel' class='notes panel panel-default'>
-    <div class='panel-heading'>
-      <span>Notes</span>
-      <%= nav_button_for('Notes') %>
-    </div>
-    <div class='panel-body'>
-      <%= "You have no notes for this lesson." if @note.nil? %>
-      <%= @note.content unless @note.nil? %>
-    </div>
-  </div>
 </div>
 
 <script id="lesson-template" type="text/x-handlebars-template">
