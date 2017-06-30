@@ -57,6 +57,7 @@ Lesson.prototype.displayLesson = function() {
 
 Lesson.prototype.addListeners = function() {
     this.pageButtonListener();
+    this.notesButtonListener();
 }
 
 Lesson.getLesson = function(url) {
@@ -84,6 +85,15 @@ Lesson.prototype.pageButtonListener = function() {
         }
 
         Lesson.getLesson(url);
+    })
+}
+
+Lesson.prototype.notesButtonListener = function() {
+    $('.notes-button').parent().on('click', function(e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+
+        console.log("notes button clicked");
     })
 }
 
