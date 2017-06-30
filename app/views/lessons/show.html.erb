@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class='notes panel panel-default'>
+  <div id='notes-panel' class='notes panel panel-default'>
     <div class='panel-heading'>
       <span>Notes</span>
       <%= nav_button_for('Notes') %>
@@ -60,7 +60,7 @@
 </script>
 
 <script id='lesson-notes-partial' type='text/x-handlebars-template'>
-  <div class="notes panel panel-default">
+  <div id='notes-panel' class='notes panel panel-default'>
     <div class="panel-heading">
       <span>Notes</span>
       <a href="/lessons/{{id}}/notes/new"><button type="button" class="btn btn-default notes-button">Edit</button></a>
@@ -78,7 +78,7 @@
 </script>
 
 <script id='lesson-notes-form' type='text/x-handlebars-template'>
-  <div class="notes panel panel-default">
+  <div id='notes-panel' class='notes panel panel-default'>
     <div class="panel-heading">
       <span>Notes</span>
       <a href="/lessons/{{id}}/notes/new"><button type="button" class="btn btn-default">Save</button></a>

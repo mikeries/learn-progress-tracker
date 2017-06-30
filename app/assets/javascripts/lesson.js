@@ -27,6 +27,55 @@ Lesson.prototype.sortedTags = function() {
     })
 }
 
+Lesson.prototype.addListeners = () => {
+    this.pageButtonListener();
+    this.notesButtonListener();
+}
+
+Lesson.prototype.viewHtml = function() {
+    return Lesson.template(this);
+}
+
+Lesson.prototype.pageButtonListener = function() {
+    let lesson = this;
+    $('.page-button').parent().on('click', function(e) {
+        e.preventDefault();
+        var $link = $(this);
+        var url = $link.attr('href');
+
+        if (url == '/lessons') {
+            return window.location.href = url;
+        }
+
+        $.ajax({
+                url: url,
+                dataType: 'json',
+                method: 'GET'
+            })
+            .success((data) => {
+                const lesson = new Lesson(data);
+                lesson.displayLesson();
+            })
+            .error((response) => {
+                errorMessage(`Oops! Failed to load '${url}'.`);
+            });
+
+    })
+}
+
+Lesson.prototype.notesButtonListener = function() {
+    let lesson = this;
+    $('.notes-button').parent().on('click', function(e) {
+        e.preventDefault();
+        var $link = $(this);
+        var url = $link.attr('href');
+
+        console.log('hijacked Notes button');
+        debugger
+        template = Handlebars.compile($('#lesson-notes-form').html());
+    })
+}
+
 Lesson.initializeHandlebars = function initializeHandlebars() {
     Lesson.templateSrc = $('#lesson-template').html();
     Lesson.template = Handlebars.compile(Lesson.templateSrc);
@@ -56,59 +105,15 @@ Lesson.initializeHandlebars = function initializeHandlebars() {
     });
 }
 
-$(function() {
-    if ($('body').hasClass("lessons show")) {
-        Lesson.initializeHandlebars();
-        Lesson.addListeners();
-    }
-})
-
-Lesson.addListeners = () => {
-    Lesson.pageButtonListener();
-    Lesson.notesButtonListener();
-}
-
-Lesson.displayLesson = (data) => {
-    lesson = new Lesson(data);
+Lesson.prototype.displayLesson = () => {
     var html = lesson.viewHtml();
     $('#lesson-content').html(html);
     window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
-    Lesson.addListeners();
+    lesson.addListeners();
 }
 
-Lesson.prototype.viewHtml = function() {
-    return Lesson.template(this);
-}
-
-Lesson.pageButtonListener = function() {
-    $('.page-button').parent().on('click', function(e) {
-        e.preventDefault();
-        var $link = $(this);
-        var url = $link.attr('href');
-
-        if (url == '/lessons') {
-            return window.location.href = url;
-        }
-
-        $.ajax({
-                url: url,
-                dataType: 'json',
-                method: 'GET'
-            })
-            .success(Lesson.displayLesson)
-            .error((response) => {
-                errorMessage(`Oops! Failed to load '${url}'.`);
-            });
-
-    })
-}
-
-Lesson.notesButtonListener = function() {
-    $('.notes-button').parent().on('click', function(e) {
-        e.preventDefault();
-        var $link = $(this);
-        var url = $link.attr('href');
-
-        console.log('hijacked Notes button');
-    })
-}
+$(function() {
+    if ($('body').hasClass("lessons show")) {
+        Lesson.initializeHandlebars();
+    }
+})
