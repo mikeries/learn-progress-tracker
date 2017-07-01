@@ -91,13 +91,16 @@ Lesson.prototype.pageButtonListener = function() {
 Lesson.prototype.notesButtonListener = function() {
     const lesson = this;
     $('.notes-button').parent().on('click', function() {
-      lesson.showForm()
+      if ($('.notes-button').text() == 'Edit') {
+        lesson.showForm();
+      } else {
+        lesson.submitForm();
+      }
     })
 }
 
 Lesson.prototype.showForm = function() {
   $('#notes-show').css('display','none');
-  console.log('click')
   $form = $('#notes-edit form')
   if (this.notes[0]) {
     $form.attr('method', 'patch')
