@@ -6,6 +6,8 @@ function Lesson(attributes) {
             for (var index in tags_array) {
                 this.tags.push(new Tag(tags_array[index]));
             }
+        } else if(key=='notes') {
+            this.notes = new Note(attributes['notes'][0]);
         } else {
             this[key] = attributes[key];
         }
@@ -102,18 +104,18 @@ Lesson.prototype.notesButtonListener = function() {
 Lesson.prototype.showForm = function() {
   $('#notes-show').css('display','none');
   $form = $('#notes-edit form')
-  if (this.notes[0]) {
+  if (this.notes) {
     $form.attr('method', 'patch')
-    $form.attr('action', `/lessons/${this.id}/notes/${this.notes[0].id}`)
-    $('#note_content').val(this.notes[0].content)
+    $form.attr('action', `/lessons/${this.id}/notes/${this.notes.id}`)
+    $('#note_content').val(this.notes.content)
   }
   $('.notes-button').text('Save');
   $('#notes-edit').css('display','block');
 }
 
 Lesson.prototype.submitForm = function() {
+    lesson = this
     $form = $('#notes-edit form')
-    console.log('submitting form')
     $.ajax({
       type: $form.attr('method'),
       url: $form.attr('action'),
@@ -121,7 +123,8 @@ Lesson.prototype.submitForm = function() {
       dataType: 'json'
     })
     .success(function(data) {
-      console.log('successful')
+      lesson.notes = new Note(data);
+      lesson.displayLesson();
     })
     .fail(function(data) {
       errorMessage(`Oops! Failed to save: '${data.responseJSON.message}'.`);
