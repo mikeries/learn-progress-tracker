@@ -138,4 +138,9 @@ $(function() {
         Lesson.initializeHandlebars();
         Lesson.getLesson($('#lesson-content').data().lessonUrl);
     }
+    if ($('body').hasClass("lessons index")) {
+        $('.unit a').on('click', function(e) {
+            console.log('clicked')
+        })
+    }
 })
