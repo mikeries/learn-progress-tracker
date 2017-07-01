@@ -1,12 +1,12 @@
 function Lesson(attributes) {
-    this.tags = []
+    this.tags = [];
     for (var key in attributes) {
-        if(key=='tags') {
-            var tags_array = attributes[key];
+        if(key == 'tags') {
+            const tags_array = attributes[key];
             for (var index in tags_array) {
                 this.tags.push(new Tag(tags_array[index]));
             }
-        } else if(key=='notes') {
+        } else if(key == 'notes') {
             this.notes = new Note(attributes['notes'][0]);
         } else {
             this[key] = attributes[key];
@@ -40,20 +40,8 @@ Lesson.prototype.sortedTags = function() {
     })
 }
 
-Lesson.initializeHandlebars = function initializeHandlebars() {
-    Lesson.templateSrc = $('#lesson-template').html();
-    Lesson.template = Handlebars.compile(Lesson.templateSrc);
-
-    Lesson.tagsPartialSrc = $('#lesson-tags-partial').html();
-    Handlebars.registerPartial('tagsPartial', Lesson.tagsPartialSrc);
-
-    Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
-    Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
-}
-
 Lesson.prototype.displayLesson = function() {
     $('#lesson-content').html(Lesson.template(this));
-    window.history.pushState(null, null, `/lessons/${this.id}.html`);
     this.addListeners();
 }
 
@@ -62,26 +50,11 @@ Lesson.prototype.addListeners = function() {
     this.notesButtonListener();
 }
 
-Lesson.getLesson = function(url) {
-  $.ajax({
-          url: url,
-          dataType: 'json',
-          method: 'GET'
-      })
-      .success((data) => {
-          const lesson = new Lesson(data);
-          lesson.displayLesson();
-      })
-      .fail((response) => {
-          errorMessage(`Oops! Failed to load '${url}'.`);
-      });
-}
-
 Lesson.prototype.pageButtonListener = function() {
     $('.page-button').parent().on('click', function(e) {
         e.preventDefault();
-        var url = $(this).attr('href');
 
+        const url = $(this).attr('href');
         if (url == '/lessons') {
             return window.location.href = url;
         }
@@ -93,41 +66,70 @@ Lesson.prototype.pageButtonListener = function() {
 Lesson.prototype.notesButtonListener = function() {
     const lesson = this;
     $('.notes-button').parent().on('click', function() {
-      if ($('.notes-button').text() == 'Edit') {
-        lesson.showForm();
-      } else {
-        lesson.submitForm();
-      }
+        if ($('.notes-button').text() == 'Edit') {
+            lesson.showForm();
+        } else {
+            lesson.submitForm();
+        }
     })
 }
 
 Lesson.prototype.showForm = function() {
-  $('#notes-show').css('display','none');
-  $form = $('#notes-edit form')
-  if (this.notes) {
-    $form.attr('method', 'patch')
-    $form.attr('action', `/lessons/${this.id}/notes/${this.notes.id}`)
-    $('#note_content').val(this.notes.content)
-  }
-  $('.notes-button').text('Save');
-  $('#notes-edit').css('display','block');
+    $('#notes-show').css('display','none');
+
+    const $form = $('#notes-edit form')
+    if (this.notes) {
+        $form.attr('method', 'patch')
+        $form.attr('action', `/lessons/${this.id}/notes/${this.notes.id}`)
+        $('#note_content').val(this.notes.content)
+    }
+    $('.notes-button').text('Save');
+
+    $('#notes-edit').css('display','block');
 }
 
 Lesson.prototype.submitForm = function() {
-    lesson = this
-    $form = $('#notes-edit form')
+    const lesson = this;
+    const $form = $('#notes-edit form');
     $.ajax({
-      type: $form.attr('method'),
-      url: $form.attr('action'),
-      data: $form.serialize(),
-      dataType: 'json'
+        type: $form.attr('method'),
+        url: $form.attr('action'),
+        data: $form.serialize(),
+        dataType: 'json'
     })
     .success(function(data) {
-      lesson.notes = new Note(data);
-      lesson.displayLesson();
+        lesson.notes = new Note(data);
+        lesson.displayLesson();
     })
     .fail(function(data) {
-      errorMessage(`Oops! Failed to save: '${data.responseJSON.message}'.`);
+        errorMessage(`Oops! Failed to save: '${data.responseJSON.message}'.`);
+    });
+}
+
+Lesson.initializeHandlebars = function initializeHandlebars() {
+    Lesson.templateSrc = $('#lesson-template').html();
+    Lesson.template = Handlebars.compile(Lesson.templateSrc);
+
+    Lesson.tagsPartialSrc = $('#lesson-tags-partial').html();
+    Handlebars.registerPartial('tagsPartial', Lesson.tagsPartialSrc);
+
+    Lesson.notesPartialSrc = $('#lesson-notes-partial').html();
+    Handlebars.registerPartial('notesPartial', Lesson.notesPartialSrc);
+}
+
+Lesson.getLesson = function(url) {
+    $.ajax({
+        url: url,
+        dataType: 'json',
+        method: 'GET'
+    })
+    .success((data) => {
+        const lesson = new Lesson(data);
+        lesson.displayLesson();
+        window.history.pushState(null, null, `/lessons/${this.id}.html`);
+    })
+    .fail((response) => {
+        errorMessage(`Oops! Failed to load '${url}'.`);
     });
 }
 
