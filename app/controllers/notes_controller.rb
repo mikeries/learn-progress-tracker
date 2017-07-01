@@ -40,7 +40,10 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
 
     @note.update(note_params)
-    if @note.valid?
+
+    if @note.content.empty?
+      Note.destroy(@note.id)
+    elsif @note.valid?
       respond_to do |format|
         format.html { redirect_to lesson_path(@note.lesson) }
         format.json { render json: @note }
