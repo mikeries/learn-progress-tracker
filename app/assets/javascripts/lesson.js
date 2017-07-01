@@ -70,7 +70,7 @@ Lesson.getLesson = function(url) {
           const lesson = new Lesson(data);
           lesson.displayLesson();
       })
-      .error((response) => {
+      .fail((response) => {
           errorMessage(`Oops! Failed to load '${url}'.`);
       });
 }
@@ -109,6 +109,23 @@ Lesson.prototype.showForm = function() {
   }
   $('.notes-button').text('Save');
   $('#notes-edit').css('display','block');
+}
+
+Lesson.prototype.submitForm = function() {
+    $form = $('#notes-edit form')
+    console.log('submitting form')
+    $.ajax({
+      type: $form.attr('method'),
+      url: $form.attr('action'),
+      data: $form.serialize(),
+      dataType: 'json'
+    })
+    .success(function(data) {
+      console.log('successful')
+    })
+    .fail(function(data) {
+      errorMessage(`Oops! Failed to save: '${data.responseJSON.message}'.`);
+    });
 }
 
 $(function() {

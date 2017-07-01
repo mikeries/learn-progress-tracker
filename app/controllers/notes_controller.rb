@@ -33,12 +33,19 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
+
     @note.update(note_params)
     if @note.valid?
-      redirect_to lesson_path(@note.lesson)
+      respond_to do |format|
+        format.html { redirect_to lesson_path(@note.lesson) }
+        format.json { render json: @note }
+      end
     else
       flash.now[:error] = @note.errors.full_messages.join("<br>").html_safe
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+        format.json { render json: {message: flash.now[:error]}, status: 400}
+      end
     end
   end
 
