@@ -19,11 +19,16 @@ class NotesController < ApplicationController
 
   def create
     @note = current_student.notes.build(note_params)
-    if @note.save
-      redirect_to lesson_path(@note.lesson)
+    if @note.content.empty?
+      render json: @note, status: 200
+    elsif @note.save
+      render json: @note, status: 200
     else
       flash.now[:error] = @note.errors.full_messages.join("<br>").html_safe
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: {message: flash.now[:error]}, status: 400}
+      end
     end
   end
   

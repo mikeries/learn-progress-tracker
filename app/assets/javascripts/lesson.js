@@ -78,7 +78,7 @@ Lesson.prototype.showForm = function() {
     $('#notes-show').css('display','none');
 
     const $form = $('#notes-edit form')
-    if (this.notes) {
+    if (this.notes.content) {
         $form.attr('method', 'patch')
         $form.attr('action', `/lessons/${this.id}/notes/${this.notes.id}`)
         $('#note_content').val(this.notes.content)
@@ -126,7 +126,7 @@ Lesson.getLesson = function(url) {
     .success((data) => {
         const lesson = new Lesson(data);
         lesson.displayLesson();
-        window.history.pushState(null, null, `/lessons/${this.id}.html`);
+        window.history.pushState(null, null, `/lessons/${lesson.id}`);
     })
     .fail((response) => {
         errorMessage(`Oops! Failed to load '${url}'.`);
