@@ -90,19 +90,22 @@ Lesson.prototype.pageButtonListener = function() {
 
 Lesson.prototype.notesButtonListener = function() {
     const lesson = this;
-    $('.notes-button').parent().on('click', function(e) {
-        $('#notes-show').css('display','none');
-        console.log('click')
-        $form = $('#notes-edit form')
-        if (lesson.notes[0]) {
-          content = lesson.notes[0].content
-          $form.attr('method', 'patch')
-          $form.attr('action', `/lessons/${lesson.id}/notes/${lesson.notes[0].id}`)
-          $('#note_content').val(content)
-        }
-        $('.notes-button').text('Save');
-        $('#notes-edit').css('display','block');
+    $('.notes-button').parent().on('click', function() {
+      lesson.showForm()
     })
+}
+
+Lesson.prototype.showForm = function() {
+  $('#notes-show').css('display','none');
+  console.log('click')
+  $form = $('#notes-edit form')
+  if (this.notes[0]) {
+    $form.attr('method', 'patch')
+    $form.attr('action', `/lessons/${this.id}/notes/${this.notes[0].id}`)
+    $('#note_content').val(this.notes[0].content)
+  }
+  $('.notes-button').text('Save');
+  $('#notes-edit').css('display','block');
 }
 
 $(function() {
