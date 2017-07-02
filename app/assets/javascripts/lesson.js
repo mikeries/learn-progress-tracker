@@ -140,7 +140,21 @@ $(function() {
     }
     if ($('body').hasClass("lessons index")) {
         $('.unit a').on('click', function(e) {
-            console.log('clicked')
+            unitId = $(this).data().unitId;
+            
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                method: 'GET'
+            })
+            .success((data) => {
+                const lesson = new Lesson(data);
+                lesson.displayLesson();
+                window.history.pushState(null, null, `/lessons/${lesson.id}`);
+            })
+            .fail((response) => {
+                errorMessage(`Oops! Failed to load '${url}'.`);
+            });
         })
     }
 })

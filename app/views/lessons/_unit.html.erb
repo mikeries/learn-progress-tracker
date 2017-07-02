@@ -1,6 +1,6 @@
-<div data-unit-id='<%= unit.id %>' class="unit panel panel-default">
+<div class="unit panel panel-default">
     <div class="panel-heading">
-      <a data-toggle="collapse" <%= data_parent_for(unit) %> <%= href_for(unit) %>>
+      <a data-unit-id='<%= unit.id %>' data-toggle="collapse" <%= data_parent_for(unit) %> <%= href_for(unit) %>>
         <h4 class="panel-title">
           <%= unit.title %>
           <span class="pull-right"><%= "#{unit.completed_lessons} of #{unit.lessons.count}" %></span>
