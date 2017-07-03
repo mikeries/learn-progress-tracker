@@ -141,16 +141,14 @@ $(function() {
     if ($('body').hasClass("lessons index")) {
         $('.unit a').on('click', function(e) {
             unitId = $(this).data().unitId;
-            
+
             $.ajax({
-                url: url,
+                url: `/lessons/units/${unitId}`,
                 dataType: 'json',
                 method: 'GET'
             })
             .success((data) => {
-                const lesson = new Lesson(data);
-                lesson.displayLesson();
-                window.history.pushState(null, null, `/lessons/${lesson.id}`);
+                Lesson.displayUnit(data);
             })
             .fail((response) => {
                 errorMessage(`Oops! Failed to load '${url}'.`);

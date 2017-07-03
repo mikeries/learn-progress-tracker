@@ -9,7 +9,7 @@
       </a>
     </div>
     <div <%= collapse_id_for(unit) %> class="panel-collapse collapse">
-      <div class='panel-body'>
+      <div id='unit-<%= unit.id %>' class='panel-body'>
         <% unit.lessons.each do |lesson| %>
           <div>
             <%= status_icon_for(lesson) %>
