@@ -24,14 +24,11 @@ class NotesController < ApplicationController
     elsif @note.save
       render json: @note, status: 200
     else
-      flash.now[:error] = @note.errors.full_messages.join("<br>").html_safe
-      respond_to do |format|
-        format.html { render :new }
-        format.json { render json: {message: flash.now[:error]}, status: 400}
-      end
+      flash.now[:error] = @note.errors.full_messages.join('<br>').html_safe
+      render json: { message: flash.now[:error] }, status: 400
     end
   end
-  
+
   def edit
     @note = current_student.notes.find(params[:id])
   end
@@ -44,16 +41,10 @@ class NotesController < ApplicationController
     if @note.content.empty?
       Note.destroy(@note.id)
     elsif @note.valid?
-      respond_to do |format|
-        format.html { redirect_to lesson_path(@note.lesson) }
-        format.json { render json: @note }
-      end
+      render json: @note
     else
-      flash.now[:error] = @note.errors.full_messages.join("<br>").html_safe
-      respond_to do |format|
-        format.html { render :edit }
-        format.json { render json: {message: flash.now[:error]}, status: 400}
-      end
+      flash.now[:error] = @note.errors.full_messages.join('<br>').html_safe
+      render json: { message: flash.now[:error] }, status: 400
     end
   end
 
@@ -62,5 +53,4 @@ class NotesController < ApplicationController
   def note_params
     params.require(:note).permit(:content, :student_id, :lesson_id)
   end
-
 end
