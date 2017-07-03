@@ -37,7 +37,7 @@ class LessonsController < ApplicationController
     @units = current_track.units.find(params[:id])
 
     if @units
-      render json: @units.lessons
+      render json: @units.lessons, each_serializer: BriefLessonSerializer
     end
   end
 
