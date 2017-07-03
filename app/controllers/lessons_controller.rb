@@ -9,7 +9,7 @@ class LessonsController < ApplicationController
   def show
     @lesson = current_track.lessons.find(params[:id])
     @note = @lesson.notes.first
-    respond_to do |format| 
+    respond_to do |format|
       format.html { render :show }
       format.json { render json: @lesson }
     end
@@ -28,7 +28,7 @@ class LessonsController < ApplicationController
     else
       @lesson.errors.messages.delete(:tags)
       @tag = @lesson.tags.last
-      flash.now[:error] = @lesson.errors.full_messages.join("<br>").html_safe
+      flash.now[:error] = @lesson.errors.full_messages.join('<br>').html_safe
       render :edit
     end
   end
@@ -42,8 +42,8 @@ class LessonsController < ApplicationController
   end
 
   private
+
   def lesson_params
     params.require(:lesson).permit(:tag_ids => [], tags_attributes: [:category])
   end
-
 end
