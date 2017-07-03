@@ -133,6 +133,27 @@ Lesson.getLesson = function(url) {
     });
 }
 
+Lesson.prototype.indexTitleHtml = function() {
+    const html = 
+    `
+    <div>
+        <i class="fa ${this.statusIconName}"></i>
+        <i class="fa ${this.typeIconName}"></i>
+        <a href="/lessons/${this.id}">${this.title}</a>
+    </div>
+    `
+    return html
+}
+
+Lesson.unitHtml = function(lessons) {
+    let html = '';
+    for (var index in lessons) {
+        var lesson = new Lesson(lessons[index]);
+        html += lesson.indexTitleHtml()
+    }
+    return html
+}
+
 $(function() {
     if ($('body').hasClass("lessons show")) {
         Lesson.initializeHandlebars();
@@ -148,7 +169,8 @@ $(function() {
                 method: 'GET'
             })
             .success((data) => {
-                Lesson.displayUnit(data);
+                const html = Lesson.unitHtml(data);
+                $(`#unit-${unitId}`).empty().append(html);
             })
             .fail((response) => {
                 errorMessage(`Oops! Failed to load '${url}'.`);
