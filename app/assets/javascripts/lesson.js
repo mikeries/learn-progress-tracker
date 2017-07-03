@@ -134,15 +134,12 @@ Lesson.getLesson = function(url) {
 }
 
 Lesson.prototype.indexTitleHtml = function() {
-    const html = 
-    `
+    return `
     <div>
         <i class="fa ${this.statusIconName}"></i>
         <i class="fa ${this.typeIconName}"></i>
         <a href="/lessons/${this.id}">${this.title}</a>
-    </div>
-    `
-    return html
+    </div>`
 }
 
 Lesson.unitHtml = function(lessons) {
