@@ -34,6 +34,10 @@ function Lesson(attributes) {
 
 }
 
+Lesson.prototype.hasNotes = function() {
+    return this.notes.content;
+}
+
 Lesson.prototype.sortedTags = function() {
     return this.tags.sort((a, b) => {
         a.category > b.category ? 1 : 0;
@@ -78,7 +82,7 @@ Lesson.prototype.showForm = function() {
     $('#notes-show').css('display','none');
 
     const $form = $('#notes-edit form')
-    if (this.notes.content) {
+    if (this.hasNotes) {
         $form.attr('method', 'patch')
         $form.attr('action', `/lessons/${this.id}/notes/${this.notes.id}`)
         $('#note_content').val(this.notes.content)
