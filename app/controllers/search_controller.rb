@@ -2,6 +2,7 @@ class SearchController < ApplicationController
   before_action :authenticate_student!
 
   def search
+    @search_term = params[:search]
     text = '%' + params[:search] + '%'
 
     @lessons = []
