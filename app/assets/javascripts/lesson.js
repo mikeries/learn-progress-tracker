@@ -35,7 +35,7 @@ function Lesson(attributes) {
 }
 
 Lesson.prototype.hasNotes = function() {
-    return this.notes.content;
+    return this.notes.content != undefined;
 }
 
 Lesson.prototype.sortedTags = function() {
@@ -69,7 +69,8 @@ Lesson.prototype.pageButtonListener = function() {
 
 Lesson.prototype.notesButtonListener = function() {
     const lesson = this;
-    $('.notes-button').parent().on('click', function() {
+    $('.notes-button').parent().on('click', function(e) {
+        e.preventDefault();
         if ($('.notes-button').text() == 'Edit') {
             lesson.showForm();
         } else {
@@ -82,7 +83,7 @@ Lesson.prototype.showForm = function() {
     $('#notes-show').css('display','none');
 
     const $form = $('#notes-edit form')
-    if (this.hasNotes) {
+    if (this.hasNotes()) {
         $form.attr('method', 'patch')
         $form.attr('action', `/lessons/${this.id}/notes/${this.notes.id}`)
         $('#note_content').val(this.notes.content)
@@ -95,6 +96,7 @@ Lesson.prototype.showForm = function() {
 Lesson.prototype.submitForm = function() {
     const lesson = this;
     const $form = $('#notes-edit form');
+
     $.ajax({
         type: $form.attr('method'),
         url: $form.attr('action'),
@@ -102,7 +104,10 @@ Lesson.prototype.submitForm = function() {
         dataType: 'json'
     })
     .success(function(data) {
-        lesson.notes = new Note(data);
+        const note = new Note(data)
+        if (note.content != "") {
+            lesson.notes = note;
+        }
         lesson.displayLesson();
     })
     .fail(function(data) {
