@@ -135,7 +135,7 @@ Lesson.getLesson = function(url) {
     .success((data) => {
         const lesson = new Lesson(data);
         lesson.displayLesson();
-        window.history.pushState(null, null, `/lessons/${lesson.id}`);
+        window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
     })
     .fail((response) => {
         errorMessage(`Oops! Failed to load '${url}'.`);
