@@ -151,27 +151,29 @@ Lesson.unitHtml = function(lessons) {
     return html
 }
 
+Lesson.getUnitIndex = function(ev) {
+    unitId = $(ev.currentTarget).data().unitId;
+
+    $.ajax({
+        url: `/lessons/units/${unitId}`,
+        dataType: 'json',
+        method: 'GET'
+    })
+    .success((data) => {
+        const html = Lesson.unitHtml(data);
+        $(`#unit-${unitId}`).empty().append(html);
+    })
+    .fail(() => {
+        errorMessage(`Oops! Failed to load '${url}'.`);
+    });
+}
+
 $(function() {
     if ($('body').hasClass("lessons show")) {
         Lesson.initializeHandlebars();
         Lesson.getLesson($('#lesson-content').data().lessonUrl);
     }
     if ($('body').hasClass("lessons index")) {
-        $('.unit a').on('click', function(e) {
-            unitId = $(this).data().unitId;
-
-            $.ajax({
-                url: `/lessons/units/${unitId}`,
-                dataType: 'json',
-                method: 'GET'
-            })
-            .success((data) => {
-                const html = Lesson.unitHtml(data);
-                $(`#unit-${unitId}`).empty().append(html);
-            })
-            .fail((response) => {
-                errorMessage(`Oops! Failed to load '${url}'.`);
-            });
-        })
+        $('.unit a').on('click', Lesson.getUnitIndex)
     }
 })
