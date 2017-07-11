@@ -79,15 +79,17 @@ Lesson.prototype.notesButtonListener = function() {
     })
 }
 
+Lesson.prototype.setupFormForEdit = function() {
+    const $form = $('#notes-edit form')
+    $form.attr('method', 'patch')
+    $form.attr('action', `/lessons/${this.id}/notes/${this.notes.id}`)
+    $('#note_content').val(this.notes.content)
+}
+
 Lesson.prototype.showForm = function() {
     $('#notes-show').css('display','none');
 
-    const $form = $('#notes-edit form')
-    if (this.hasNotes()) {
-        $form.attr('method', 'patch')
-        $form.attr('action', `/lessons/${this.id}/notes/${this.notes.id}`)
-        $('#note_content').val(this.notes.content)
-    }
+    if (this.hasNotes()) { this.setupFormForEdit() }
     $('.notes-button').text('Save');
 
     $('#notes-edit').css('display','block');
