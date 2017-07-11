@@ -1,4 +1,4 @@
-Lesson.prototype.indexTitleHtml = function() {
+Lesson.prototype.lessonIndexTitle = function() {
     return `
     <div>
         <i class="fa ${this.statusIconName}"></i>
@@ -7,26 +7,27 @@ Lesson.prototype.indexTitleHtml = function() {
     </div>`
 }
 
-Lesson.unitHtml = function(lessons) {
+Lesson.lessonIndexHtml = function(lessons) {
     return lessons.reduce((html, attributes) => {
       const lesson = new Lesson(attributes);
-      return html += lesson.indexTitleHtml()}
+      return html += lesson.lessonIndexTitle()}
     , '')
 }
 
-Lesson.getUnitIndex = function(ev) {
+Lesson.getLessonIndex = function(ev) {
     unitId = $(ev.currentTarget).data().unitId;
-    $unitIndexContainer = $(`#unit-${unitId}`)
+    $lessonIndexContainer = $(`#unit-${unitId}`)
 
-    if ($unitIndexContainer.children().length === 0) {
+    if ($lessonIndexContainer.children().length === 0) {
         $.ajax({
             url: `/lessons/units/${unitId}`,
             dataType: 'json',
             method: 'GET'
         })
         .success((data) => {
-            const html = Lesson.unitHtml(data);
-            $unitIndexContainer.empty().append(html);
+            $lessonIndexContainer
+              .empty()
+              .append(Lesson.lessonIndexHtml(data));
         })
         .fail(() => {
             errorMessage(`Oops! Failed to load '${url}'.`);
@@ -36,6 +37,6 @@ Lesson.getUnitIndex = function(ev) {
 
 $(function() {
     if ($('body').hasClass("lessons index")) {
-        $('.unit a').on('click', Lesson.getUnitIndex)
+        $('.unit a').on('click', Lesson.getLessonIndex)
     }
 })
