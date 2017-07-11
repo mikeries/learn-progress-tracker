@@ -1,0 +1,44 @@
+@import "bootstrap";
+body {
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.progress {
+    height: 4px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.progress-bar {
+    background-color: green;
+}
+
+.panel-heading>a,
+.panel-heading>a:hover,
+.panel-heading>a:visited,
+{
+    text-decoration: none;
+    color: black;
+}
+
+.breadcrumb-menu {
+    margin: 0 5px 15px 5px;
+}
+
+#note_content {
+    width: 80%;
+    height: 300px;
+}
+
+.tag-list {
+    columns: 5;
+    text-align: right;
+}
+
+.field_with_errors>textarea,
+.field_with_errors>input {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
