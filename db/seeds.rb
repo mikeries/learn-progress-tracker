@@ -6,9 +6,3 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
-
-# file = File.read(Rails.root + 'db/curriculum-data.json')
-# track_hash = JSON.parse(file)
-#
-# initializer = Student.create(email: 'initialize@student.edu', password: 'initialize')
-# initializer.tracks.create(track_hash)
