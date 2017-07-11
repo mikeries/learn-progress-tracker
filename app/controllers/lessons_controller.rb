@@ -33,17 +33,17 @@ class LessonsController < ApplicationController
     end
   end
 
-  def units
-    @units = current_track.units.find(params[:id])
+  def unit
+    @unit = current_track.units.find(params[:id])
 
-    if @units
-      render json: @units.lessons, each_serializer: BriefLessonSerializer
+    if @unit
+      render json: @unit.lessons, each_serializer: BriefLessonSerializer
     end
   end
 
   private
 
   def lesson_params
-    params.require(:lesson).permit(:tag_ids => [], tags_attributes: [:category])
+    params.require(:lesson).permit(tag_ids: [], tags_attributes: [:category])
   end
 end

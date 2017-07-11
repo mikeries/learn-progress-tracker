@@ -20,7 +20,7 @@ Lesson.getLessonIndex = function(ev) {
 
     if ($lessonIndexContainer.children().length === 0) {
         $.ajax({
-            url: `/lessons/units/${unitId}`,
+            url: `/lessons/unit/${unitId}`,
             dataType: 'json',
             method: 'GET'
         })
