@@ -12,10 +12,10 @@
 
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <% if not student_signed_in? %>
-          <%= render 'layouts/not-signed-in' %>
-        <% else %>
+        <% if student_signed_in? %>
           <%= render 'layouts/signed-in' %>
+        <% else %>
+          <%= render 'layouts/not-signed-in' %>
         <% end %>
       </ul>
 
