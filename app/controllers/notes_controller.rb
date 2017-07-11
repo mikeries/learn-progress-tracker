@@ -20,6 +20,7 @@ class NotesController < ApplicationController
 
     if @note.content.empty?
       Note.destroy(@note.id)
+      render json: {message: 'note deleted'}, status: 200
     elsif @note.valid?
       render json: @note
     else
