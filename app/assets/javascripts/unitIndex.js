@@ -8,16 +8,10 @@ Lesson.prototype.indexTitleHtml = function() {
 }
 
 Lesson.unitHtml = function(lessons) {
-    return lessons.reduce((html, props) => {
-      const lesson = new Lesson(props);
+    return lessons.reduce((html, attributes) => {
+      const lesson = new Lesson(attributes);
       return html += lesson.indexTitleHtml()}
     , '')
-    // let html = '';
-    // for (let index in lessons) {
-    //     const lesson = new Lesson(lessons[index]);
-    //     html += lesson.indexTitleHtml()
-    // }
-    // return html
 }
 
 Lesson.getUnitIndex = function(ev) {
@@ -31,7 +25,6 @@ Lesson.getUnitIndex = function(ev) {
             method: 'GET'
         })
         .success((data) => {
-          console.log(data);
             const html = Lesson.unitHtml(data);
             $unitIndexContainer.empty().append(html);
         })
