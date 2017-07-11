@@ -162,19 +162,22 @@ Lesson.unitHtml = function(lessons) {
 
 Lesson.getUnitIndex = function(ev) {
     unitId = $(ev.currentTarget).data().unitId;
+    $unitIndexContainer = $(`#unit-${unitId}`)
 
-    $.ajax({
-        url: `/lessons/units/${unitId}`,
-        dataType: 'json',
-        method: 'GET'
-    })
-    .success((data) => {
-        const html = Lesson.unitHtml(data);
-        $(`#unit-${unitId}`).empty().append(html);
-    })
-    .fail(() => {
-        errorMessage(`Oops! Failed to load '${url}'.`);
-    });
+    if ($unitIndexContainer.children().length === 0) {
+        $.ajax({
+            url: `/lessons/units/${unitId}`,
+            dataType: 'json',
+            method: 'GET'
+        })
+        .success((data) => {
+            const html = Lesson.unitHtml(data);
+            $unitIndexContainer.empty().append(html);
+        })
+        .fail(() => {
+            errorMessage(`Oops! Failed to load '${url}'.`);
+        });
+    }
 }
 
 $(function() {
