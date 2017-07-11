@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/lessons/unit/:id' => 'lessons#unit'
 
   resources :lessons, only: [:index, :show, :update, :edit] do
-    resources :notes, only: [:show, :edit, :new, :create, :update]
+    resources :notes, only: [ :create, :update]
   end
 
   resources :tracks, only: [:index, :create]
