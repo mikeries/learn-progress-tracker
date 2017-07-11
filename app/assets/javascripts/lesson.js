@@ -1,9 +1,9 @@
 function Lesson(attributes) {
     this.tags = [];
-    for (var key in attributes) {
+    for (let key in attributes) {
         if(key == 'tags') {
             const tags_array = attributes[key];
-            for (var index in tags_array) {
+            for (let index in tags_array) {
                 this.tags.push(new Tag(tags_array[index]));
             }
         } else if(key == 'notes') {
@@ -153,8 +153,8 @@ Lesson.prototype.indexTitleHtml = function() {
 
 Lesson.unitHtml = function(lessons) {
     let html = '';
-    for (var index in lessons) {
-        var lesson = new Lesson(lessons[index]);
+    for (let index in lessons) {
+        const lesson = new Lesson(lessons[index]);
         html += lesson.indexTitleHtml()
     }
     return html
