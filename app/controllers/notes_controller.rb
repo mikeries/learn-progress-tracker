@@ -3,6 +3,8 @@ class NotesController < ApplicationController
 
   def create
     @note = current_student.notes.build(note_params)
+    @note.student.id=current_student.id
+
     if @note.content.empty?
       render json: @note, status: 200
     elsif @note.save
@@ -15,7 +17,6 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
-
     @note.update(note_params)
 
     if @note.content.empty?
@@ -32,6 +33,6 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:content, :student_id, :lesson_id)
+    params.require(:note).permit(:content, :lesson_id)
   end
 end

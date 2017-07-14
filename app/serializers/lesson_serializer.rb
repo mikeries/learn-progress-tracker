@@ -3,5 +3,4 @@ class LessonSerializer < ActiveModel::Serializer
             :next_lesson_id, :previous_lesson_id
   has_many :notes
   has_many :tags
-  belongs_to :student
 end
