@@ -55,6 +55,7 @@ Lesson.prototype.addListeners = function() {
 }
 
 Lesson.prototype.pageButtonListener = function() {
+
     $('.page-button').parent().on('click', function(e) {
         e.preventDefault();
 
@@ -69,7 +70,7 @@ Lesson.prototype.pageButtonListener = function() {
 
 Lesson.prototype.notesButtonListener = function() {
     const lesson = this;
-    $('.notes-button').parent().on('click', function(e) {
+    $('.notes-button').parent().on('click', (e) => {
         e.preventDefault();
         if ($('.notes-button').text() == 'Edit') {
             lesson.showForm();
@@ -105,14 +106,14 @@ Lesson.prototype.submitForm = function() {
         data: $form.serialize(),
         dataType: 'json'
     })
-    .success(function(data) {
+    .success(data => {
         const note = new Note(data)
         if (note.content != "") {
             lesson.notes = note;
         }
         lesson.displayLesson();
     })
-    .fail(function(data) {
+    .fail(data => {
         errorMessage(`Oops! Failed to save: '${data.responseJSON.message}'.`);
     });
 }
@@ -134,12 +135,12 @@ Lesson.getLesson = function(url) {
         dataType: 'json',
         method: 'GET'
     })
-    .success((data) => {
+    .success(data => {
         const lesson = new Lesson(data);
         lesson.displayLesson();
         window.history.pushState(null, null, `/lessons/${lesson.id}.html`);
     })
-    .fail((response) => {
+    .fail(response => {
         errorMessage(`Oops! Failed to load '${url}'.`);
     });
 }
