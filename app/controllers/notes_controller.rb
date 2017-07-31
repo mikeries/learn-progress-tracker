@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   def create
     @note = current_student.notes.build(note_params)
-    @note.student.id=current_student.id
+    @note.student.id = current_student.id
 
     if @note.content.empty?
       render json: @note, status: 200

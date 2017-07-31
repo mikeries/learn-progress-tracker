@@ -21,5 +21,4 @@ class TracksController < ApplicationController
     current_student.current_track = track
     current_student.save
   end
-
 end

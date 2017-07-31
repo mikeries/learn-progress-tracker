@@ -11,5 +11,4 @@ class SessionsController < ApplicationController
   def on_track
     @track = Track.find_by(slug: params[:slug])
   end
-
 end

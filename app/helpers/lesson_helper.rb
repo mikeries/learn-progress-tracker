@@ -1,6 +1,6 @@
 module LessonHelper
   def collapse_id(element)
-      "collapse_topic_#{element.id}"
+    "collapse_topic_#{element.id}"
   end
 
   def href_for(element)
@@ -38,7 +38,6 @@ module LessonHelper
   end
 
   def nav_button_for(button_type, path = lessons_path)
-
     case button_type
     when 'Index'
       path = lessons_path
@@ -59,5 +58,4 @@ module LessonHelper
 
     link_to "<button type='button' class='btn btn-default #{klass}'>#{button_type}</button>".html_safe, path
   end
-
 end
