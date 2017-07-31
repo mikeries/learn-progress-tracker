@@ -2,6 +2,8 @@
 
 We're nerds learning to code, and we want more feedback on our progress through the Learn Curriculum.  This web app helps you explore your progress, see how far you've come, and motivate you to keep at it.  Its tools enable you to take notes for each lesson and tag and them so that you can quickly find them again later.
 
+A demo of this tool can be found here: [Learn Companion.](http://learn-companion.herokuapp.com/)  Note that because the hosting service (Heroku) sleeps idle applications, this link may take several seconds to load.
+
 ## Installation
 
 Clone the repository, run `bundle install` to install the gems, then `rails s` to start the server.  Then point your browser to http://localhost:3000.
